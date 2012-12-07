@@ -1,0 +1,86 @@
+html,body,div,span,
+applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,font,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+dd,dl,dt,li,ol,ul,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 100%;
+	line-height: 1;
+	font-family: inherit;
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+q:before,q:after,
+blockquote:before,blockquote:after {
+	content: "";
+}
+
+body {
+	background-color: #FFF;
+	padding: .315em .315em .2em .315em;
+}
+
+h1 {
+	font-size: 2em;
+	text-transform: uppercase;
+	font-family: helvetica, sans-serif;
+	color: #363636;
+}
+
+h2 {
+	font-size: 1.3em;
+	text-transform: uppercase;
+	font-family: helvetica, sans-serif;
+	color: #363636;
+}
+
+ol {
+	text-transform: uppercase;
+	font-family: helvetica, sans-serif;
+	list-style-type: none;
+}
+
+ol li {
+	padding: .4em .4em .4em .4em;
+}
+
+.floor {
+	display: inline-block; width: 50%;
+}
+
+#floor1 {
+	background-color: #BBBBBB;
+	color: #363636;
+}
+
+#floor2 {
+	background-color: #88B3DA;
+	color: #FFF;
+}
+
+#floor3 {
+	background-color: #0065A4;
+	color: #FFF;
+}
+
+#floor4 {
+	background-color: #004875;
+	color: #FFF;
+}
