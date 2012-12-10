@@ -29,13 +29,13 @@ function new_get_file_contents($url) {
 	curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 	$file_contents = curl_exec($ch); 
 	curl_close($ch);
-	return $file_contents;
+	return $file_contents; 
 }
 
 // Grab JSON dump of available computers and parse
 
-//$json = file_get_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
-$json = new_get_file_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
+$json = file_get_contents('http://gvsu.edu/tools/lab/api/room.cfm');
+//$json = new_get_file_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
 
 
 $results = json_decode($json, true);
