@@ -40,7 +40,7 @@ $json = new_get_file_contents('http://websupport.server.gvsu.edu/lab/api/room.cf
 
 $results = json_decode($json, true);
 
-//var_dump($results);
+var_dump($results);
 
 $building_results = $results['room'];
 
