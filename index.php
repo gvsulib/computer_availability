@@ -35,7 +35,7 @@ function new_get_file_contents($url) {
 // Grab JSON dump of available computers and parse
 
 //$json = file_get_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
-$json = new_file_get_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
+$json = new_get_file_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
 
 
 $results = json_decode($json, true);
