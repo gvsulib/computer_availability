@@ -20,27 +20,15 @@
 
 <?php
 
-// function to replace file_get_contents()
-function new_get_file_contents($url) {
-	$ch = curl_init();
-	$timeout = 10; // set to zero for no timeout
-	curl_setopt ($ch, CURLOPT_URL, $url);
-	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-	$file_contents = curl_exec($ch); 
-	curl_close($ch);
-	return $file_contents; 
-}
 
 // Grab JSON dump of available computers and parse
 
 $json = file_get_contents('http://gvsu.edu/tools/lab/api/room.cfm');
-//$json = new_get_file_contents('http://websupport.server.gvsu.edu/lab/api/room.cfm');
 
 
 $results = json_decode($json, true);
 
-var_dump($results);
+// var_dump($results);
 
 $building_results = $results['room'];
 
