@@ -451,7 +451,7 @@ body {
 				</div>
 	
 				<div id="page-content">
-					<h1>Library Computer Availability</h1>
+					<a href="http://gvsulib.com/labs/computer_availability/"><h1>Library Computer Availability</h1></a>
 
 					<ol>
 					
