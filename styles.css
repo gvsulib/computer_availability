@@ -61,26 +61,26 @@ ol li {
 	padding: .4em .4em .4em .4em;
 }
 
-.floor {
+.row {
 	display: inline-block; width: 50%;
 }
 
-#floor1 {
+.row1 {
 	background-color: #BBBBBB;
 	color: #363636;
 }
 
-#floor2 {
+.row2 {
 	background-color: #88B3DA;
 	color: #FFF;
 }
 
-#floor3 {
+.row3 {
 	background-color: #0065A4;
 	color: #FFF;
 }
 
-#floor4 {
+.row4 {
 	background-color: #004875;
 	color: #FFF;
 }
