@@ -517,9 +517,9 @@ body {
 								echo '<li class="row1"><span class="row">'.$floor[0].'</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
 							} else if($building == "CHS"){
 								if($floor[0] == 290){
-									echo '<li class="row1"><span class="row">Room '.$floor[0].'</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
+									echo '<li class="row1"><span class="row">Room '.$floor[0].':</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
 								} else if($floor[0] == 490){
-									echo '<li class="row2"><span class="row">Room '.$floor[0].'</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
+									echo '<li class="row2"><span class="row">Room '.$floor[0].':</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
 								}
 							}
 						}
