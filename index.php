@@ -513,6 +513,7 @@ body {
 									echo '<li class="row' . $floor[0] . '"><span class="row"><abbr title="' . $readable_floor . '">' . $floor[0] . $floor_suffix . '</abbr> Floor:</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
 								}
 							} else if($building == "Steelcase"){
+								if($floor[0] == "LIBDEV") $floor[0] = "Classroom:";
 								echo '<li class="row1"><span class="row">'.$floor[0].'</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
 							} else if($building == "CHS"){
 								if($floor[0] == 290){
