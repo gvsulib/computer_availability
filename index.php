@@ -451,7 +451,7 @@ body {
 				</div>
 	
 				<div id="page-content">
-					<a href="http://gvsulib.com/labs/computer_availability/"><h1>Library Computer Availability</h1></a>
+					<a href="http://gvsulib.com/labs/computer_availability/"><h2>Library Computer Availability</h2></a>
 
 					<ol>
 					
@@ -470,21 +470,21 @@ body {
 					
 					if(isset($_GET['library'])){
 						if(strtolower($_GET['library']) == "zumberge"){
-							echo '<a href="?library=zumberge"><h2>Zumberge</h2></a>';
+							echo '<a href="?library=zumberge"><h4>Zumberge</h4></a>';
 							printCompAvail("Zumberge", $building_results);
 						} else if(strtolower($_GET['library']) == "steelcase"){
-							echo '<a href="?library=steelcase"><h2>Steelcase</h2></a>';
+							echo '<a href="?library=steelcase"><h4>Steelcase</h4></a>';
 							printCompAvail("Steelcase", $building_results);
 						} else if(strtolower($_GET['library']) == "frey"){
-							echo '<a href=?library=frey"><h2>Frey @ CHS</h2></a>';
+							echo '<a href=?library=frey"><h4>Frey @ CHS</h4></a>';
 							printCompAvail("CHS", $building_results);
 						}
 					} else {
-						echo '<a href="?library=zumberge"><h2>Zumberge</h2></a>';
+						echo '<a href="?library=zumberge"><h4>Zumberge</h4></a>';
 						printCompAvail("Zumberge", $building_results);					
-						echo '<a href="?library=steelcase"><h2>Steelcase</h2></a>';
+						echo '<a href="?library=steelcase"><h4>Steelcase</h4></a>';
 						printCompAvail("Steelcase", $building_results);
-						echo '<a href="?library=frey"><h2>Frey @ CHS</h2></a>';
+						echo '<a href="?library=frey"><h4>Frey @ CHS</h4></a>';
 						printCompAvail("CHS", $building_results);
 					}
 					
