@@ -547,6 +547,7 @@ body {
 								<li><a href="http://gvsu.edu/library/findjournals" class="" target="_self">Magazines &amp; Journals</a></li>
 								<li><a href="http://gvsu.edu/library/govdoc" class="" target="_self">Government Resources</a></li>
 								<li><a href="http://gvsu.edu/library/digitalcollections" class="" target="_self">Digital Collections</a></li>
+								<li><a href="http://scholarworks.gvsu.edu/" class="" target="_self">ScholarWorks@GVSU Institutional Repository</a></li>
 								<li><a href="http://gvsu.edu/library/specialcollections" class="" target="_self">Special Collections &amp; University Archives</a></li>
 								<li><a href="http://gvsu.edu/library/cml" class="" target="_self">Curriculum Materials</a></li>
 							</ul>
@@ -559,8 +560,9 @@ body {
 								<li><a href="http://gvsu.edu/library/citationtools" class="" target="_self">Citation Tools</a></li>
 								<li><a href="http://gvsu.edu/library/laptops" class="" target="_self">Technology Lending</a></li>
 								<li><a href="http://gvsu.edu/library/facultysupport" class="" target="_self">Faculty &amp; Instructor Support</a></li>
-								<li><a href="http://gvsu.edu/library/distancelearning" class="" target="_self">Distance Learning</a></li>
+									<a href="http://gvsu.edu/library/sc" class="" target="_self">Scholarly Communications</a></li>
 								<li><a href="http://scholarworks.gvsu.edu/" class="" target="_self">ScholarWorks@GVSU Institutional Repository</a></li>
+								<li><a href="http://gvsu.edu/library/distancelearning" class="" target="_self">Distance Learning</a></li>
 								<li><a href="http://gvsu.edu/library/purchase" class="" target="_self">Purchase Request</a></li>
 								<li><a href="http://gvsu.edu/library/mastersprojects" class="" target="_self">Master's Projects</a></li>
 								<li><a href="http://gvsu.edu/library/labs" class="" target="_self">Library Labs</a></li>
@@ -592,9 +594,7 @@ body {
 
 					<div id="navigation-contact-socialMedia">
 					
-						<p><a href="http://facebook.com/gvsulibraries"><img src="http://gvsu.edu/cms3/skeleton_32/files/img/socialmedia/facebook.png" alt="Facebook" title="Facebook" width="32" height="32"></a>
-			
-						<a href="http://twitter.com/gvsulib"><img src="http://gvsu.edu/cms3/skeleton_32/files/img/socialmedia/twitter.png" alt="Twitter" title="Twitter" width="32" height="32"></a>
+						<p><a href="http://twitter.com/gvsulib"><img src="http://gvsu.edu/cms3/skeleton_32/files/img/socialmedia/twitter.png" alt="Twitter" title="Twitter" width="32" height="32"></a>
 			
 						<a href="http://youtube.com/user/gvsulib"><img src="http://gvsu.edu/cms3/skeleton_32/files/img/socialmedia/youtube.png" alt="YouTube" title="YouTube" width="32" height="32"></a></p>
 					
