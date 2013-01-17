@@ -32,25 +32,6 @@ blockquote:before,blockquote:after {
 	content: "";
 }
 
-body {
-	background-color: #FFF;
-	padding: .315em .315em .2em .315em;
-}
-
-h1 {
-	font-size: 2em;
-	text-transform: uppercase;
-	font-family: helvetica, sans-serif;
-	color: #363636;
-}
-
-h2 {
-	font-size: 1.3em;
-	text-transform: uppercase;
-	font-family: helvetica, sans-serif;
-	color: #363636;
-}
-
 ol {
 	text-transform: uppercase;
 	font-family: helvetica, sans-serif;
@@ -59,6 +40,24 @@ ol {
 
 ol li {
 	padding: .4em .4em .4em .4em;
+	margin-left: 1em;
+}
+
+ol > li:last-child{
+   border-bottom: 0px solid #bcbcbc;
+}
+
+h4 {
+	padding-bottom: -1em;
+	padding-top: 1em;
+}
+
+.available, .row {
+	font-size: 1.3em;
+}
+
+.row1, .row2, .row3, .row4 {
+	border-bottom: 1px solid #bcbcbc;
 }
 
 .row {
@@ -66,21 +65,17 @@ ol li {
 }
 
 .row1 {
-	background-color: #BBBBBB;
-	color: #363636;
+	color: #575757;
 }
 
 .row2 {
-	background-color: #88B3DA;
-	color: #FFF;
+	color: #6a95bc;
 }
 
 .row3 {
-	background-color: #0065A4;
-	color: #FFF;
+	color: #0065A4;
 }
 
 .row4 {
-	background-color: #004875;
-	color: #FFF;
+	color: #004875;
 }
