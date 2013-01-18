@@ -5,7 +5,7 @@
 
 	<link href="styles.css" rel="stylesheet" />
 
-	<meta http-equiv="refresh" content="30">
+	<meta http-equiv="refresh" content="60">
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
 	<meta name="description" content="The University Libraries provide a comprehensive overview of resources and tools available for research within the university community.">
@@ -13,8 +13,8 @@
 
 
 		<link type="text/css" rel="stylesheet" href="http://gvsu.edu/cms3/skeleton_32/files/css/base.css">
-
-
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    	
 <style type="text/css">
 	#navigation {
 	}
@@ -453,7 +453,6 @@ body {
 				<div id="page-content">
 					<a href="http://gvsulib.com/labs/computer_availability/"><h2>Library Computer Availability</h2></a>
 
-					<ol>
 					
 					<?php
 					// Grab JSON dump of available computers and parse
@@ -470,30 +469,44 @@ body {
 					
 					if(isset($_GET['library'])){
 						if(strtolower($_GET['library']) == "zumberge"){
-							echo '<a href="?library=zumberge"><h4>Zumberge</h4></a>';
+							echo '<div class="line"><div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</a></h4></div></div>';
+							echo '<div class="line">';
 							printCompAvail("Zumberge", $building_results);
+							echo '</div>';
 						} else if(strtolower($_GET['library']) == "steelcase"){
-							echo '<a href="?library=steelcase"><h4>Steelcase</h4></a>';
+							echo '<h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
 							printCompAvail("Steelcase", $building_results);
 						} else if(strtolower($_GET['library']) == "frey"){
-							echo '<a href=?library=frey"><h4>Frey @ CHS</h4></a>';
+							echo '<h4 class="banner_title"><a href=?library=frey">Frey @ <abbr title="Cook DeVos Center for Health Sciences">CHS</abbr></a></h4>';
 							printCompAvail("CHS", $building_results);
 						}
 					} else {
-						echo '<a href="?library=zumberge"><h4>Zumberge</h4></a>';
-						printCompAvail("Zumberge", $building_results);					
-						echo '<a href="?library=steelcase"><h4>Steelcase</h4></a>';
+						echo '<div class="line"><div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</h4></a></div></div>';
+						echo '<div class="line">';
+						printCompAvail("Zumberge", $building_results);
+						echo '</div>';				
+						echo '<div class="line"><div class="span2 unit left"><h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</h4>';
 						printCompAvail("Steelcase", $building_results);
-						echo '<a href="?library=frey"><h4>Frey @ CHS</h4></a>';
+						echo '</div>';
+						echo '<div class="span2 unit left lastUnit"><h4 class="banner_title"><a href="?library=frey">Frey @ <abbr title="Cook DeVos Center for Health Sciences">CHS</abbr></a></h4>';
 						printCompAvail("CHS", $building_results);
+						echo '</div>';
+						echo '</div>';
 					}
-					
+?>
+
+
+
+<?php
+
 					function printCompAvail($building, $building_results){
 						foreach ($building_results as $key => $values) {
 						if($values['buildingAbbreviation'] == $building) {
 
 							$availableCPU = $values['availablePc'];
 							$floor = explode(".", $values['name']);
+							$totalCPU = $values['totalPc'];
+							$unavailableCPU = $totalCPU - $availableCPU;
 							
 							if($building == "Zumberge"){
 								if(is_numeric($floor[0])){
@@ -510,17 +523,119 @@ body {
 										$readable_floor = "fourth";
 										$floor_suffix = "th";
 									}
-									echo '<li class="row' . $floor[0] . '"><span class="row"><abbr title="' . $readable_floor . '">' . $floor[0] . $floor_suffix . '</abbr> Floor:</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
+									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor[0] . $floor_suffix . '</abbr> Floor</h4>';
+
+?>
+
+					<script type="text/javascript">
+
+			     		 // Load the Visualization API and the piechart package.
+			      		google.load('visualization', '1.0', {'packages':['corechart']});
+
+			      		// Set callbacks to run when the Google Visualization API is loaded.
+			      		google.setOnLoadCallback(drawChart);
+
+			      		function drawChart() {
+			        		var data = google.visualization.arrayToDataTable([
+			          		['Availability', 'No'],
+			          		['Yes',     <?php echo $availableCPU; ?>],
+					        ['No',      <?php echo $unavailableCPU; ?>]
+			        	]);
+
+        var options = {
+          'colors': ['green','red'],
+          'legend': 'none',
+          'pieSliceText': 'none',
+          'width':180,
+          'height':180
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('<?php echo $building . $floor[0]; ?>'));
+        chart.draw(data, options);
+      }
+      	</script>
+
+<?php
+
+
+							echo '<div id="' . $building . $floor[0] . '"></div><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div>';
 								}
 							} else if($building == "Steelcase"){
-								if($floor[0] == "LIBDEV") $floor[0] = "Classroom:";
-								echo '<li class="row1"><span class="row">'.$floor[0].'</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
-							} else if($building == "CHS"){
-								if($floor[0] == 290){
-									echo '<li class="row1"><span class="row">Room '.$floor[0].':</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
-								} else if($floor[0] == 490){
-									echo '<li class="row2"><span class="row">Room '.$floor[0].':</span> <span class="available">' . $availableCPU . '&nbsp;open</span></li>';
-								}
+								if($floor[0] == "LIBDEV") $floor[0] = "All Computers";
+				echo '<div class="span2 unit left"><h4 class="row1 center">' . $floor[0] . '</h4>';
+
+?>
+
+					<script type="text/javascript">
+
+			     		 // Load the Visualization API and the piechart package.
+			      		google.load('visualization', '1.0', {'packages':['corechart']});
+
+			      		// Set callbacks to run when the Google Visualization API is loaded.
+			      		google.setOnLoadCallback(drawChart);
+
+			      		function drawChart() {
+			        		var data = google.visualization.arrayToDataTable([
+			          		['Availability', 'No'],
+			          		['Yes',     <?php echo $availableCPU; ?>],
+					        ['No',      <?php echo $unavailableCPU; ?>]
+			        	]);
+
+        var options = {
+          'colors': ['green','red'],
+          'legend': 'none',
+          'pieSliceText': 'none',
+          'width':180,
+          'height':180
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('<?php echo $building; ?>'));
+        chart.draw(data, options);
+      }
+      	</script>
+
+<?php
+
+
+							echo '<div id="' . $building . '"></div><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div>';
+														} else if(($building == "CHS") && (($floor[0] == '290') || ($floor[0] == '490'))) {
+echo '<div class="span2 unit right"><h4 class="row1 center">' . $floor[0] . '</h4>';
+
+?>
+
+					<script type="text/javascript">
+
+			     		 // Load the Visualization API and the piechart package.
+			      		google.load('visualization', '1.0', {'packages':['corechart']});
+
+			      		// Set callbacks to run when the Google Visualization API is loaded.
+			      		google.setOnLoadCallback(drawChart);
+
+			      		function drawChart() {
+			        		var data = google.visualization.arrayToDataTable([
+			          		['Availability', 'No'],
+			          		['Yes',     <?php echo $availableCPU; ?>],
+					        ['No',      <?php echo $unavailableCPU; ?>]
+			        	]);
+
+        var options = {
+          'colors': ['green','red'],
+          'legend': 'none',
+          'pieSliceText': 'none',
+          'width':180,
+          'height':180
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('<?php echo $building . $floor[0]; ?>'));
+        chart.draw(data, options);
+      }
+      	</script>
+
+<?php
+
+
+							echo '<div id="' . $building . $floor[0] . '"></div><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div>';
+														
 							}
 						}
 					}

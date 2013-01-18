@@ -47,9 +47,19 @@ ol > li:last-child{
    border-bottom: 0px solid #bcbcbc;
 }
 
-h4 {
-	padding-bottom: -1em;
-	padding-top: 1em;
+h4.banner_title {
+	width: 100% !important;
+	background-color: #004875;
+	padding: .5em;
+		color: #fff !important;
+
+
+}
+
+h4.banner_title a {
+	color: #fff !important;
+	text-decoration: none;
+	
 }
 
 .available, .row {
