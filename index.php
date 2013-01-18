@@ -451,8 +451,8 @@ body {
 				</div>
 	
 				<div id="page-content">
-					<h2 id="cpu_heading"><a href="http://gvsulib.com/labs/computer_availability/">Library Computer Availability</a></h2>
-				<div id="cpu_legend" class="lib-horizontal-list">
+					<h2 class="left"><a href="http://gvsulib.com/labs/computer_availability/">Library Computer Availability</a></h2>
+				<div class="lib-horizontal-list right">
 				<ul>
 					<li><span class="avail_green legend">&nbsp;</span> Many open </li>
 					<li><span class="avail_yellow legend">&nbsp;</span> Few open</li>
@@ -467,8 +467,6 @@ body {
 						.legend { margin-left: .5em; height: 1em; padding: 0 .5em;}
 						.avail_red { background: #c00; color: white;}
 						.avail { margin-top: 2em; padding: 1em 0; width: 100%; }
-						#cpu_legend { float:right;}
-						#cpu_heading { float: left;}
 					</style>
 
 					
