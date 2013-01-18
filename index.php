@@ -451,16 +451,24 @@ body {
 				</div>
 	
 				<div id="page-content">
-					<a href="http://gvsulib.com/labs/computer_availability/"><h2>Library Computer Availability</h2></a>
+					<h2 id="cpu_heading"><a href="http://gvsulib.com/labs/computer_availability/">Library Computer Availability</a></h2>
+				<div id="cpu_legend" class="lib-horizontal-list">
+				<ul>
+					<li><span class="avail_green legend">&nbsp;</span> Many open </li>
+					<li><span class="avail_yellow legend">&nbsp;</span> Few open</li>
+					<li><span class="avail_red legend">&nbsp;</span> None open</li>
+				</ul>
+			</div>
 
 					<style>
 						#Steelcase { margin-top: 2em; padding: 1em 0; width: 100%; background: green; color: white;}
 						.avail_green { background: #6c6; color: #333;}
 						.avail_yellow { background: #ff3;color: #333;}
-
+						.legend { margin-left: .5em; height: 1em; padding: 0 .5em;}
 						.avail_red { background: #c00; color: white;}
 						.avail { margin-top: 2em; padding: 1em 0; width: 100%; }
-
+						#cpu_legend { float:right;}
+						#cpu_heading { float: left;}
 					</style>
 
 					
