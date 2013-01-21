@@ -14,7 +14,8 @@
 
 		<link type="text/css" rel="stylesheet" href="http://gvsu.edu/cms3/skeleton_32/files/css/base.css">
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    	
+
+
 <style type="text/css">
 	#navigation {
 	}
@@ -460,6 +461,24 @@ body {
 				</ul>
 			</div>
 			<div class="gvsu-clear"></div>
+
+			    	
+<?php 
+if(isset($_GET[x])) {
+
+	if($_GET[x] == 'true') {
+
+		echo '<style>
+			#gvsu-library_search,#gvsu-library_menu,#gvsu-library_title,#navigation,#gvsu-footer-wrapper,#gvsu-header-wrapper{display:none !important;}
+			#content{width:100% !important;}
+			body{background-color:#fff !important;}
+			#page-content {width:90% !important;float:none !important;margin:5% auto !important;}
+			</style>';
+
+	}
+}
+
+?>
 
 					<style>
 						.avail_green { background: #6c6; color: #333;}
