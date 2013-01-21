@@ -459,14 +459,21 @@ body {
 					<li><span class="avail_red legend">&nbsp;</span> None open</li>
 				</ul>
 			</div>
+			<div class="gvsu-clear"></div>
 
 					<style>
-						#Steelcase { margin-top: 2em; padding: 1em 0; width: 100%; background: green; color: white;}
 						.avail_green { background: #6c6; color: #333;}
 						.avail_yellow { background: #ff3;color: #333;}
 						.legend { margin-left: .5em; height: 1em; padding: 0 .5em;}
 						.avail_red { background: #c00; color: white;}
-						.avail { margin-top: 2em; padding: 1em 0; width: 100%; }
+						.avail { margin-top: 2em; padding: 1.5em 0; width: 100%; }
+						h4 { margin: 0 !important; }
+						.span2 .span2 { width: 98%;}
+						h2 { background-color: #fff !important; font-size: 2em;}
+
+						@media screen and (min-width: 56.25em) { 
+							.span2 .span2 { width: 48%; }
+						}
 					</style>
 
 					
@@ -485,7 +492,7 @@ body {
 					
 					if(isset($_GET['library'])){
 						if(strtolower($_GET['library']) == "zumberge"){
-							echo '<div class="line"><div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</a></h4></div></div>';
+							echo '<div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</a></h4></div>';
 							echo '<div class="line">';
 							printCompAvail("Zumberge", $building_results);
 							echo '</div>';
@@ -497,14 +504,14 @@ body {
 							printCompAvail("CHS", $building_results);
 						}
 					} else {
-						echo '<div class="line"><div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</h4></a></div></div>';
+						echo '<div class="span1" style="margin-top:1em;"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</h4></a></div>';
 						echo '<div class="line">';
 						printCompAvail("Zumberge", $building_results);
 						echo '</div>';				
 						echo '<div class="line"><div class="span2 unit left"><h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
 						printCompAvail("Steelcase", $building_results);
 						echo '</div>';
-						echo '<div class="span2 unit left lastUnit"><h4 class="banner_title"><a href="?library=frey">Frey @ <abbr title="Cook DeVos Center for Health Sciences">CHS</abbr></a></h4>';
+						echo '<div class="span2 unit left lastUnit" id="chs"><h4 class="banner_title"><a href="?library=frey">Frey @ <abbr title="Cook DeVos Center for Health Sciences">CHS</abbr></a></h4>';
 						printCompAvail("CHS", $building_results);
 						echo '</div>';
 						echo '</div>';
@@ -523,6 +530,14 @@ body {
 							$floor = explode(".", $values['name']);
 							$totalCPU = $values['totalPc'];
 							$unavailableCPU = ($availableCPU / $totalCPU)*100;
+
+							if($unavailableCPU > 40) {
+								$availableClass = "avail_green";
+							} else if($unavailableCPU == 0) {
+								$availableClass = "avail_red";
+							} else {
+								$availableClass = "avail_yellow";
+							}
 							
 							if($building == "Zumberge"){
 								if(is_numeric($floor[0])){
@@ -541,60 +556,16 @@ body {
 									}
 									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor[0] . $floor_suffix . '</abbr> Floor</h4>';
 
-
-							if($unavailableCPU > 40) {
-								$availableClass = "avail_green";
-							} else if($unavailableCPU == 0) {
-								$availableClass = "avail_red";
-							} else {
-								$availableClass = "avail_yellow";
-							}
-
 							echo '<div id="' . $building . $floor[0] . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 								}
 							} else if($building == "Steelcase"){
 								if($floor[0] == "LIBDEV") $floor[0] = "All Computers";
-				echo '<div class="span2 unit left"><h4 class="row1 center">' . $floor[0] . '</h4>';
+							echo '<div class="span2 unit left"><h4 class="row1 center">' . $floor[0] . '</h4><div id="' . $building . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 
-echo '<div id="' . $building . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 														} else if(($building == "CHS") && (($floor[0] == '290') || ($floor[0] == '490'))) {
-echo '<div class="span2 unit right"><h4 class="row1 center">' . $floor[0] . '</h4>';
+							echo '<div class="span2 unit right"><h4 class="row1 center">' . $floor[0] . '</h4><div id="' . $building . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 
-?>
-
-					<script type="text/javascript">
-
-			     		 // Load the Visualization API and the piechart package.
-			      		google.load('visualization', '1.0', {'packages':['corechart']});
-
-			      		// Set callbacks to run when the Google Visualization API is loaded.
-			      		google.setOnLoadCallback(drawChart);
-
-			      		function drawChart() {
-			        		var data = google.visualization.arrayToDataTable([
-			          		['Availability', 'No'],
-			          		['Yes',     <?php echo $availableCPU; ?>],
-					        ['No',      <?php echo $unavailableCPU; ?>]
-			        	]);
-
-        var options = {
-          'colors': ['green','red'],
-          'legend': 'none',
-          'pieSliceText': 'none',
-          'width':180,
-          'height':180
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('<?php echo $building . $floor[0]; ?>'));
-        chart.draw(data, options);
-      }
-      	</script>
-
-<?php
-
-
-							echo '<div id="' . $building . $floor[0] . '"></div><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div>';
-														
+							
 							}
 						}
 					}
