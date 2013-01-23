@@ -8,6 +8,7 @@
 
 	<meta http-equiv="refresh" content="60">
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<meta name="description" content="The University Libraries provide a comprehensive overview of resources and tools available for research within the university community.">
 	<meta name="keywords" content="research, writing, literacy, services">
