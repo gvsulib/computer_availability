@@ -403,6 +403,18 @@ body {
 		 	<![endif]-->
 		 	<link rel="stylesheet" href="http://gvsu.edu/homepage/files/fonts/stylesheet3.css" type="text/css">
 	 	
+		 	<?php
+
+		 	if(isset($_GET['x'])) {
+		 		if($_GET['x'] == 'true') {
+
+		 			echo '<link rel="stylesheet" type="text/css" href="http:/gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/gvsu-lib-styles-ie.css" />
+';
+		 		}
+		 	}
+
+		 	?>
+
 	</head>
 	
 	<body>
