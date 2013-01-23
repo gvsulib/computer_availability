@@ -410,8 +410,111 @@ body {
 		 	if(isset($_GET['x'])) {
 		 		if($_GET['x'] == 'true') {
 
-		 			echo '<link rel="stylesheet" type="text/css" href="http:/gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/gvsu-lib-styles-ie.css" />
-';
+?>
+<style>
+
+/* LAYOUT */
+
+#content { width: 81.58333333333333em; }
+#page-content { float: right; width: 73%;}
+#gvsu-library_menu { display: none; }
+a.libgethelp { margin: none; line-height: 1; position: absolute; top:4.8em; right: 1em; font-size: 1.2em; display: block; text-decoration: none; padding-left: 1.8em; padding: 0 0 0 2em; font-weight: normal; color: #fff; border: 0; width: auto; border-radius: 0; text-shadow: none; background: transparent url(https://secure.gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/chat_icon.png) top left no-repeat;  }
+
+/* GRIDS */
+
+.unit { padding: 1em 1%; }
+.line{overflow:hidden;*overflow:visible;*zoom:1;clear:both;}
+.span2 { width: 48%; }
+.span3 { width: 31%; }
+.span4 { width: 23%; }
+.span2of3 { width: 64%;}
+.span3of4 { width: 73%; }
+.line .right { clear: none; }
+
+/* NAVIGATION STYLES */
+
+#navigation { width: 22%; }	
+#navigation ul#navigation-menu li:hover ul,
+#navigation ul#navigation-menu ul li:hover ul,
+#navigation ul#navigation-menu ul ul li:hover ul,
+#navigation ul#navigation-menu li.iehover ul,
+#navigation ul#navigation-menu ul li.iehover ul,
+#navigation ul#navigation-menu ul ul li.iehover ul { display: block; }
+#navigation ul#navigation-menu ul, 
+#navigation ul#navigation-menu ul ul, 
+#navigation ul#navigation-menu ul ul ul { left: 100%; }
+.dbformat { display: inline !important; }
+#navigation-footer { display: block; }
+#sub-navigation {margin-top: -3.5em; }
+.lib-subnav ul {height: 2.3em; }
+.lib-subnav li { float: left;font-size: 1.1em;border-bottom: none !important;width: 25%;border-right: 1px solid #eee;} 
+.lib-subnav li ul li { border-bottom: 1px solid #eee !important; }
+.lib-subnav ul li ul,
+.lib-subnav ul li ul li {position: relative;z-index: 600;}
+.lib-subnav ul li ul li {float: none;width: 100%; }
+.lib-subnav ul li ul {display:none;padding-top: 0;margin-top: 0;height: 0;}
+.lib-subnav ul li:hover ul {display: block;}
+.lib-subnav a,
+.lib-subnav span { padding: .5em .8em; }
+
+/* TYPOGRAPHY */
+
+#gvsu-library_title { font-size: 1.5em; }
+h2, h3 { background-color: #fff; font-size: 2em; padding: 0; color: #004875; }
+#page-content h3 a { color: #004875 !important;}
+
+/* IMAGES */	
+
+#gvsu-header-wrapper img { max-width: 100% !important; }
+
+/* LISTS */
+
+.lib_contact_list li span { display: inline-block; width: 35%;}
+.lib-hours-location span { width: 6em;}
+.lib-horizontal-list { padding-top: 0; }
+.lib-horizontal-list ul li {float:left;margin:1em 1em 0 0;padding:0 .7em 0 0;}
+
+/* FORM STYLES */
+
+form.lib-book-form input[type="text"] { width: 60%; float: left; position: static; }
+form#summon-search-box { width: 30em; }	
+#page-content form.lib-simple-form input[type="text"] { width: 100%;}
+
+/* BUTTON STYLES */
+	
+.lib-button-wide { width: 80%; margin:auto; position: relative !important; top: 0 !important; bottom: .3em !important;font-size: 1.1em;}
+
+/* TABLE STYLES */
+	
+.lib-db-description,
+.lib-db-scholarly,
+.lib-db-fulltext { display: table-cell; width:15%; text-align: left;}
+	
+/* FOOTER */
+
+.gvsu-tablet { display: inline; }
+.gvsu-disclaimer_mobile { display: inline !important; }
+#gvsu-footer_links { display: block; }
+#gvsu-footer-wrapper #gvsu-contact_info,
+#gvsu-footer_links { width: 23% !important;padding: 0;margin: 0;line-height: 2.1em; float: left;}
+#gvsu-footer-wrapper .vcard {width: 100%;margin-top: 0;}
+#gvsu-contact_info .gvsu-footer_mobile_links {display: none;}
+.gvsu-desktop { display: inline; }
+.gvsu-disclaimer_tablet,
+.gvsu-disclaimer-disclosure {display: inline !important; }
+#gvsu-disclaimers_copyright {float: right !important;text-align: right !important;width: 100% !important;}
+	
+/* HOMEPAGE STYLES */
+
+.lib-hours-location span { width: 40%; }
+.line .span3 a img { width: 100%; }
+
+* HTML #page-content {
+	width: 73% !important;
+	margin: 0 !important;
+}
+</style>
+<?php
 		 		}
 		 	}
 
