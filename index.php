@@ -426,7 +426,7 @@ a.libgethelp { margin: none; line-height: 1; position: absolute; top:4.8em; righ
 .line{overflow:hidden;*overflow:visible;*zoom:1;clear:both;}
 .span2 { width: 48%; }
 .span3 { width: 31%; }
-.span4 { width: 23%; }
+.span4 { width: 22%; }
 .span2of3 { width: 64%;}
 .span3of4 { width: 73%; }
 .line .right { clear: none; }
