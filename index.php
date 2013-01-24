@@ -664,8 +664,37 @@ if(isset($_GET[x])) {
 
 							$availableCPU = $values['availablePc'];
 							$floor = explode(".", $values['name']);
-							$totalCPU = $values['totalPc'];
-							$unavailableCPU = ($availableCPU / $totalCPU)*100;
+
+							
+							if($building == "Zumberge"){
+								if(is_numeric($floor[0])){
+									if($floor[0] == 1) {
+										$readable_floor = "first";
+										$floor_suffix = "st";
+										$availableCPU = $availableCPU - 2;
+										$totalCPU = $values['totalPc'] - 2;
+
+									} else if($floor[0] == 2) {
+										$readable_floor = "second";
+										$floor_suffix = "nd";
+																	$totalCPU = $values['totalPc'];
+
+									} else if($floor[0] == 3) {
+										$readable_floor = "third";
+										$floor_suffix = "rd";
+																	$totalCPU = $values['totalPc'];
+
+									} else if($floor[0] == 4) {
+										$readable_floor = "fourth";
+										$floor_suffix = "th";
+										$availableCPU = $availableCPU - 2;
+										$totalCPU = $values['totalPc'] -2;
+
+
+									}
+
+$unavailableCPU = ($availableCPU / $totalCPU)*100;
+
 
 							if($unavailableCPU > 40) {
 								$availableClass = "avail_green";
@@ -674,31 +703,56 @@ if(isset($_GET[x])) {
 							} else {
 								$availableClass = "avail_yellow";
 							}
-							
-							if($building == "Zumberge"){
-								if(is_numeric($floor[0])){
-									if($floor[0] == 1) {
-										$readable_floor = "first";
-										$floor_suffix = "st";
-									} else if($floor[0] == 2) {
-										$readable_floor = "second";
-										$floor_suffix = "nd";
-									} else if($floor[0] == 3) {
-										$readable_floor = "third";
-										$floor_suffix = "rd";
-									} else if($floor[0] == 4) {
-										$readable_floor = "fourth";
-										$floor_suffix = "th";
-									}
+
 									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor[0] . $floor_suffix . '</abbr> Floor</h4>';
 
 							echo '<div id="' . $building . $floor[0] . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 								}
 							} else if($building == "Steelcase"){
+
+
+								if($values['hasClass'] == 'true') {
+
+									$availableCPU = 0;
+									$availableClass = "avail_red";
+
+								} else {
+															$totalCPU = $values['totalPc'];
+
+$unavailableCPU = ($availableCPU / $totalCPU)*100;
+
+
+							if($unavailableCPU > 40) {
+								$availableClass = "avail_green";
+							} else if($unavailableCPU == 0) {
+								$availableClass = "avail_red";
+							} else {
+								$availableClass = "avail_yellow";
+							}
+						}
 								if($floor[0] == "LIBDEV") $floor[0] = "All Computers";
 							echo '<div class="span2 unit left"><h4 class="row1 center">' . $floor[0] . '</h4><div id="' . $building . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 
 														} else if(($building == "CHS") && (($floor[0] == '290') || ($floor[0] == '490'))) {
+							if(($values['hasClass'] == 'true') && ($floor[0] == '290')) {
+
+									$availableCPU = 0;
+									$availableClass = "avail_red";
+
+								} else {
+							$totalCPU = $values['totalPc'];
+
+$unavailableCPU = ($availableCPU / $totalCPU)*100;
+
+
+							if($unavailableCPU > 40) {
+								$availableClass = "avail_green";
+							} else if($unavailableCPU == 0) {
+								$availableClass = "avail_red";
+							} else {
+								$availableClass = "avail_yellow";
+							}
+						}
 							echo '<div class="span2 unit right"><h4 class="row1 center">' . $floor[0] . '</h4><div id="' . $building . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 
 							
