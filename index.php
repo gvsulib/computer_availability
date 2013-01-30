@@ -398,7 +398,7 @@ body {
 			<link rel="stylesheet" type="text/css" href="http://gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/gvsu-lib-styles-new.css">
 			
 			<!--[if lt IE 9]>
-		 		<link rel="stylesheet" type="text/css" href="http:/gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/gvsu-lib-styles-ie.css" />
+		 		<link rel="stylesheet" type="text/css" href="http://gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/gvsu-lib-styles-ie.css" />
 		 	<![endif]--> 
 		 	<!--[if lt IE 8]>
 		 		<link rel="stylesheet" type="text/css" href="http://gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/gvsu-lib-styles-ie7.css" />
@@ -581,9 +581,9 @@ form#summon-search-box { width: 30em; }
 
 			    	
 <?php 
-if(isset($_GET[x])) {
+if (!empty($_GET['x'])) { 
 
-	if($_GET[x] == 'true') {
+	if($_GET['x'] == 'true') {
 
 		echo '<style>
 			#gvsu-library_search,#gvsu-library_menu,#gvsu-library_title,#navigation,#gvsu-footer-wrapper,#gvsu-header-wrapper{display:none !important;}
