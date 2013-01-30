@@ -693,6 +693,8 @@ if (!empty($_GET['x'])) {
 
 									}
 
+									if($availableCPU <= 0) { $availableCPU = 0; }
+
 $unavailableCPU = ($availableCPU / $totalCPU)*100;
 
 
