@@ -599,7 +599,7 @@ if (!empty($_GET['x'])) {
 
 					<style>
 						.avail_green { background: #6c6; color: #333;}
-						.avail_yellow { background: #ff3;color: #333;}
+						.avail_yellow { background: #f7ec1e;color: #333;}
 						.legend { margin-left: .5em; height: 1em; padding: 0 .5em;}
 						.avail_red { background: #c00; color: white;}
 						.avail { margin-top: 2em; padding: 1.5em 0; width: 100%; }
