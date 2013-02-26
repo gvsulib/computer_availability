@@ -416,10 +416,10 @@ body {
 /* LAYOUT */
 
 #content { width: 81.58333333333333em; }
-#page-content { float: right; width: 73%;}
+#page-content { float: right; width: 73%; margin-top: 0 !important;}
 #gvsu-library_menu { display: none; }
 a.libgethelp { margin: none; line-height: 1; position: absolute; top:4.8em; right: 1em; font-size: 1.2em; display: block; text-decoration: none; padding-left: 1.8em; padding: 0 0 0 2em; font-weight: normal; color: #fff; border: 0; width: auto; border-radius: 0; text-shadow: none; background: transparent url(https://secure.gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/chat_icon.png) top left no-repeat;  }
-
+h4.banner_title { display: none;}
 /* GRIDS */
 
 .unit { padding: 1em 1%; }
