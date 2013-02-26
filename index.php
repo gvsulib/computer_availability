@@ -589,7 +589,7 @@ if (!empty($_GET['x'])) {
 			#gvsu-library_search,#gvsu-library_menu,#gvsu-library_title,#navigation,#gvsu-footer-wrapper,#gvsu-header-wrapper{display:none !important;}
 			#content{width:100% !important;}
 			body{background-color:#fff !important;}
-			#page-content {width:90% !important;float:none !important;margin:5% auto !important;}
+			#page-content {width:90% !important;float:none !important;margin:0 auto !important;}
 			</style>';
 
 	}
