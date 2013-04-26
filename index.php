@@ -630,7 +630,7 @@ if (!empty($_GET['x'])) {
 						if(strtolower($_GET['library']) == "zumberge"){
 							echo '<div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</a></h4></div>';
 							echo '<div class="line">';
-							printCompAvail("Zumberge", $building_results);
+								echo '<div class="span1 unit"><p><strong>Zumberge Library is closed</strong>. Come see our temporary location in the Kirkhof Center&#8217;s Thornapple Room!</p><p>Don&#8217;t worry, we&#8217;re building a bigger, better library for you and will open up in June.</p></div>';
 							echo '</div>';
 						} else if(strtolower($_GET['library']) == "steelcase"){
 							echo '<h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
@@ -719,7 +719,8 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 									$availableClass = "avail_red";
 
 								} else {
-															$totalCPU = $values['totalPc'];
+															$totalCPU = $values['totalPc'] - 19;
+															$availableCPU = $availableCPU - 19;
 
 $unavailableCPU = ($availableCPU / $totalCPU)*100;
 
