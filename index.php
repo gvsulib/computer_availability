@@ -82,6 +82,10 @@
 	#blue-header-bar {
 		.z-index: 2;
 	}
+
+	.awesome-category {
+		display: block;
+	}
 	
 	/* Root Menu Hover Persistence */
 	#navigation ul#navigation-menu a:hover,
