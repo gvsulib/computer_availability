@@ -82,6 +82,8 @@
 	#blue-header-bar {
 		.z-index: 2;
 	}
+
+	/* Here is an awesome comment */
 	
 	/* Root Menu Hover Persistence */
 	#navigation ul#navigation-menu a:hover,
@@ -627,10 +629,11 @@ if (!empty($_GET['x'])) {
 					
 					
 					if(isset($_GET['library'])){
-						if(strtolower($_GET['library']) == "zumberge"){
-							echo '<div class="span1 unit"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</a></h4></div>';
+						if(strtolower($_GET['library']) == "maryi"){
+							echo '<div class="span1 unit"><h4 class="banner_title"><a href="?library=maryi">Mary Idema Pew Library</a></h4></div>';
 							echo '<div class="line">';
-								echo '<div class="span1 unit"><p><strong>Zumberge Library is closed</strong>. Come see our temporary location in the Kirkhof Center&#8217;s Thornapple Room!</p><p>Don&#8217;t worry, we&#8217;re building a bigger, better library for you and will open up in June.</p></div>';
+								printCompAvail("LIB", $building_results);
+
 							echo '</div>';
 						} else if(strtolower($_GET['library']) == "steelcase"){
 							echo '<h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
@@ -640,9 +643,10 @@ if (!empty($_GET['x'])) {
 							printCompAvail("CHS", $building_results);
 						}
 					} else {
-						echo '<div class="span1" style="margin-top:1em;"><h4 class="banner_title"><a href="?library=zumberge">Zumberge Library</h4></a></div>';
+						echo '<div class="span1" style="margin-top:1em;"><h4 class="banner_title"><a href="?library=maryi">Mary Idema Pew Library</h4></a></div>';
 						echo '<div class="line">';
-								echo '<div class="span1 unit"><p><strong>Zumberge Library is closed</strong>. Come see our temporary location in the Kirkhof Center&#8217;s Thornapple Room!</p><p>Don&#8217;t worry, we&#8217;re building a bigger, better library for you and will open up in June.</p></div>';
+													printCompAvail("LIB", $building_results);
+
 						echo '</div>';				
 						echo '<div class="line"><div class="span2 unit left"><h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
 						printCompAvail("Steelcase", $building_results);
@@ -660,37 +664,36 @@ if (!empty($_GET['x'])) {
 
 					function printCompAvail($building, $building_results){
 						foreach ($building_results as $key => $values) {
+
 						if($values['buildingAbbreviation'] == $building) {
 
 							$availableCPU = $values['availablePc'];
-							$floor = explode(".", $values['name']);
+							$floor = explode(" ", $values['name']);
 
 							
-							if($building == "Zumberge"){
-								if(is_numeric($floor[0])){
-									if($floor[0] == 1) {
+							if($building == "LIB"){
+								if(isset($floor[1])) {
+									if($floor[1] == 1) {
 										$readable_floor = "first";
 										$floor_suffix = "st";
-										$availableCPU = $availableCPU - 2;
-										$totalCPU = $values['totalPc'] - 2;
+										//$availableCPU = $availableCPU - 2;
+										$totalCPU = $values['totalPc'];
 
-									} else if($floor[0] == 2) {
+									} else if($floor[1] == 2) {
 										$readable_floor = "second";
 										$floor_suffix = "nd";
 																	$totalCPU = $values['totalPc'];
 
-									} else if($floor[0] == 3) {
+									} else if($floor[1] == 3) {
 										$readable_floor = "third";
 										$floor_suffix = "rd";
 																	$totalCPU = $values['totalPc'];
 
-									} else if($floor[0] == 4) {
+									} else if($floor[1] == 4) {
 										$readable_floor = "fourth";
 										$floor_suffix = "th";
-										$availableCPU = $availableCPU - 2;
-										$totalCPU = $values['totalPc'] -2;
-
-
+										//$availableCPU = $availableCPU - 2;
+										$totalCPU = $values['totalPc'];
 									}
 
 									if($availableCPU <= 0) { $availableCPU = 0; }
@@ -706,10 +709,11 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 								$availableClass = "avail_yellow";
 							}
 
-									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor[0] . $floor_suffix . '</abbr> Floor</h4>';
+									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor[1] . $floor_suffix . '</abbr> Floor</h4>';
 
-							echo '<div id="' . $building . $floor[0] . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
+							echo '<div id="' . $building . $floor[1] . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 								}
+
 							} else if($building == "Steelcase"){
 
 
@@ -733,6 +737,7 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 								$availableClass = "avail_yellow";
 							}
 						}
+
 								if($floor[0] == "LIBDEV") $floor[0] = "All Computers";
 							echo '<div class="span2 unit left"><h4 class="row1 center">' . $floor[0] . '</h4><div id="' . $building . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 
