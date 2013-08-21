@@ -609,6 +609,8 @@ if (!empty($_GET['x'])) {
 			}
 			h2.left { float: none !important;}
 			h2 a { color: #fff !important; }
+			.avail { padding: 3em 0 !important; }
+			.available { font-size: 2.8em !important;}
 			</style>';
 
 	}
