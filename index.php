@@ -592,6 +592,23 @@ if (!empty($_GET['x'])) {
 			#content{width:100% !important;}
 			body{background-color:#fff !important;}
 			#page-content {width:90% !important;float:none !important;margin:0 auto !important;}
+			h2 {
+				background-color: #006699;
+				background-image: -ms-linear-gradient(top, #88B3DA -50%, #006699 100%);
+				background-image: -moz-linear-gradient(top, #88B3DA -50%, #006699 100%);
+				background-image: -o-linear-gradient(top, #88B3DA -50%, #006699 100%);
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-.50, #88B3DA), color-stop(1, #006699));
+				background-image: -webkit-linear-gradient(top, #88B3DA -50%, #006699 100%);
+				background-image: linear-gradient(to bottom, #88B3DA -50%, #006699 100%);
+				color:white !important;
+				padding-left:5px;
+				margin-bottom:0px;
+				margin-top:0px;
+				line-height: 40px;
+				width: 100%;
+			}
+			h2.left { float: none !important;}
+			h2 a { color: #fff !important; }
 			</style>';
 
 	}
