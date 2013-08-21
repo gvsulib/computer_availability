@@ -591,8 +591,8 @@ if (!empty($_GET['x'])) {
 			#gvsu-library_search,#gvsu-library_menu,#gvsu-library_title,#navigation,#gvsu-footer-wrapper,#gvsu-header-wrapper{display:none !important;}
 			#content{width:100% !important;}
 			body{background-color:#fff !important;}
-			#page-content {width:90% !important;float:none !important;margin:0 auto !important;}
-			h2 {
+			#page-content { padding: 0 !important; width:100% !important;float:none !important;margin:0 auto !important;}
+			h2 { 
 				background-color: #006699;
 				background-image: -ms-linear-gradient(top, #88B3DA -50%, #006699 100%);
 				background-image: -moz-linear-gradient(top, #88B3DA -50%, #006699 100%);
@@ -601,7 +601,7 @@ if (!empty($_GET['x'])) {
 				background-image: -webkit-linear-gradient(top, #88B3DA -50%, #006699 100%);
 				background-image: linear-gradient(to bottom, #88B3DA -50%, #006699 100%);
 				color:white !important;
-				padding-left:5px;
+				padding-left: 1%;
 				margin-bottom:0px;
 				margin-top:0px;
 				line-height: 40px;
