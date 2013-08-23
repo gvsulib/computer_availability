@@ -742,8 +742,8 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 									$availableClass = "avail_red";
 
 								} else {
-															$totalCPU = $values['totalPc'] - 19;
-															$availableCPU = $availableCPU - 19;
+															$totalCPU = $values['totalPc'];
+															$availableCPU = $availableCPU;
 
 $unavailableCPU = ($availableCPU / $totalCPU)*100;
 
