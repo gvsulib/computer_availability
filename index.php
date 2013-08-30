@@ -609,8 +609,9 @@ if (!empty($_GET['x'])) {
 			}
 			h2.left { float: none !important;}
 			h2 a { color: #fff !important; }
-			.avail { padding: 3em 0 !important; }
-			.available { font-size: 2.8em !important;}
+			.avail { padding: 2.125em 0 !important; }
+			.available { font-size: 2.7em !important;}
+			h5 {font-size: 1.6em !important; text-align:center;}
 			</style>';
 
 	}
@@ -627,6 +628,7 @@ if (!empty($_GET['x'])) {
 						h4 { margin: 0 !important; }
 						.span2 .span2 { width: 98%;}
 						h2 { background-color: #fff !important; font-size: 2em;}
+						h5 { font-size: 1.25em; color: #444;line-height:1.75em;}
 
 						@media screen and (min-width: 56.25em) { 
 							.span2 .span2 { width: 48%; }
@@ -654,6 +656,8 @@ if (!empty($_GET['x'])) {
 								printCompAvail("LIB", $building_results);
 
 							echo '</div>';
+						echo '<div class="line" style="clear: left;"><div class="span1 unit"><h5>48 additional computers available in Learn Lab 001 on the Atrium level when not in use by a class</h5></div></div>';		
+
 						} else if(strtolower($_GET['library']) == "steelcase"){
 							echo '<h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
 							printCompAvail("Steelcase", $building_results);
@@ -666,7 +670,8 @@ if (!empty($_GET['x'])) {
 						echo '<div class="line">';
 													printCompAvail("LIB", $building_results);
 
-						echo '</div>';				
+						echo '</div>';
+						echo '<div class="line" style="clear: left;"><div class="span1 unit"><h5>48 additional computers available in Learn Lab 001 on the Atrium level when not in use by a class</h5></div></div>';		
 						echo '<div class="line"><div class="span2 unit left"><h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
 						printCompAvail("Steelcase", $building_results);
 						echo '</div>';
