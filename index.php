@@ -814,38 +814,62 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 								<li><a href="http://gvsu.edu/library/findjournals" class="" target="_self">Magazines &amp; Journals</a></li>
 								<li><a href="http://gvsu.edu/library/govdoc" class="" target="_self">Government Resources</a></li>
 								<li><a href="http://gvsu.edu/library/digitalcollections" class="" target="_self">Digital Collections</a></li>
-								<li><a href="http://scholarworks.gvsu.edu/" class="" target="_self">ScholarWorks@GVSU Institutional Repository</a></li>
 								<li><a href="http://gvsu.edu/library/specialcollections" class="" target="_self">Special Collections &amp; University Archives</a></li>
+								<li><a href="http://gvsu.edu/s/jn" class="" target="_self">ScholarWorks@GVSU Institutional Repository</a></li>
 								<li><a href="http://gvsu.edu/library/cml" class="" target="_self">Curriculum Materials</a></li>
 							</ul>
 						</li>
 						<li><a href="http://gvsu.edu/library/allservices" class="navparent" target="_self">Services</a>
 							<ul>
+								<li><a href="http://gvsu.edu/library/studentsupport" class="navparent">Student Support</a>
+									<ul>
+										<li><a href="http://gvsu.edu/library/student-support-220.htm#articles">Get Articles</a></li>
+										<li><a href="http://gvsu.edu/library/student-support-220.htm#books">Get Books</a></li>
+										<li><a href="http://gvsu.edu/library/student-support-220.htm#research">Get Research Help</a></li>
+										<li><a href="http://gvsu.edu/library/citationtools">Citation Tools</a></li>
+										<li><a href="http://gvsu.edu/library/student-support-220.htm#technology">Technology in the Library</a></li>
+										<li><a href="http://gvsu.edu/library/distancelearning">Distance Learning</a></li>
+										<li><a href="http://gvsu.edu/library/libraryquest">Library Quest</a></li>
+									</ul>
+								</li>
 								<li><a href="http://gvsu.edu/library/ereserves" class="" target="_self">Course Reserves</a></li>
 								<li><a href="http://gvsu.edu/library/ill" class="" target="_self">Document Delivery</a></li>
-								<li><a href="https://library.catalog.gvsu.edu/patroninfo" class="" target="_self">Renew Books Online</a></li>
-								<li><a href="http://gvsu.edu/library/citationtools" class="" target="_self">Citation Tools</a></li>
-								<li><a href="http://gvsu.edu/library/laptops" class="" target="_self">Technology Lending</a></li>
-								<li><a href="http://gvsu.edu/library/facultysupport" class="" target="_self">Faculty &amp; Instructor Support</a></li>
-									<a href="http://gvsu.edu/library/sc" class="" target="_self">Scholarly Communications</a></li>
-								<li><a href="http://scholarworks.gvsu.edu/" class="" target="_self">ScholarWorks@GVSU Institutional Repository</a></li>
-								<li><a href="http://gvsu.edu/library/distancelearning" class="" target="_self">Distance Learning</a></li>
-								<li><a href="http://gvsu.edu/library/purchase" class="" target="_self">Purchase Request</a></li>
+								<li><a href="http://gvsu.edu/library/instruction" class="" target="_self">Instructional Services</a></li>
+								<li><a href="http://gvsu.edu/library/sc/" class="navparent" target="_self">Scholarly Communications</a>
+									<ul>
+										<li><a href="http://gvsu.edu/s/jm" class="" target="_self">ScholarWorks@GVSU Institutional Repository</a></li>
+									</ul>
+								</li>
 								<li><a href="http://gvsu.edu/library/mastersprojects" class="" target="_self">Master's Projects</a></li>
-								<li><a href="http://gvsu.edu/library/labs" class="" target="_self">Library Labs</a></li>
+								<li><a href="http://gvsu.edu/library/labs" class="navparent" target="_self">Library Labs</a>
+									<ul>
+										<li><a href="http://gvsu.edu/library/status">Library Systems' Status</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li><a href="http://gvsu.edu/library/about" class="navparent" target="_self">About</a>
 							<ul>
-								<li><a href="http://gvsu.edu/library/hours.htm" class="" target="_self">Hours</a></li>
-								<li><a href="http://gvsu.edu/library/directions" class="" target="_self">Locations</a></li>
-								<li><a href="http://gvsu.edu/chat" class="" target="_self">Contact Us</a></li>
-								<li><a href="http://gvsu.edu/library/librarians" class="" target="_self">Subject Librarians </a></li>
-								<li><a href="http://gvsu.edu/library/staff" class="" target="_self">Staff</a></li>
-								<li><a href="http://gvsu.edu/library/policies" class="" target="_self">Borrowing Policies</a></li>
-								<li><a href="http://gvsu.edu/library/lsac" class="" target="_self">Student Advisory Council</a></li>
-								<li><a href="http://gvsu.edu/library/newbuilding" class="" target="_self">Mary Idema Pew Library</a></li>
-								<li><a href="http://gvsu.edu/cms3/assets/741ECAAE-BD54-A816-71DAF591D1D7955C/GiftPolicy.pdf" class="" target="_self">Gifts to the Libraries</a></li>
+								<!--li><a href="http://gvsu.edu/chat" class="" target="_self">Contact Us</a></li-->
+								<li><a href="#" class="navparent">People</a>
+									<ul>
+										<li><a href="http://gvsu.edu/library/librarians" class="" target="_self">Subject Librarians </a></li>
+										<li><a href="http://gvsu.edu/library/staff" class="" target="_self">Staff</a></li>
+										<li><a href="http://gvsu.edu/library/lsac" class="" target="_self">Student Advisory Council</a></li>
+										<li><a href="http://gvsu.edu/library/jobs" class="" target="_self">Jobs</a></li>
+									</ul>
+								</li>
+								<li><a href="#" class="navparent">Visiting</a>
+									<ul>
+										<li><a href="http://gvsu.edu/library/hours.htm" class="" target="_self">Hours</a></li>
+										<li><a href="http://gvsu.edu/library/tours" class="" target="_self">Tours</a></li>
+										<li><a href="http://gvsu.edu/library/maryidemapew" class="" target="_self">Mary Idema Pew Library</a></li>
+										<li><a href="http://gvsu.edu/library/steelcase" class="" target="_self">Steelcase Library</a></li>
+										<li><a href="http://gvsu.edu/library/freychs" class="" target="_self">Frey Foundation Learning Center</a></li>
+										<li><a href="http://gvsu.edu/library/seidmanhouse" class="" target="_self">Seidman House</a></li>
+										<li><a href="http://gvsu.edu/library/cml" class="" target="_self">Curriculum Materials Library</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>	
 					</ul><!-- End #navigation-menu -->
