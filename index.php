@@ -571,7 +571,7 @@ form#summon-search-box { width: 30em; }
 				</div>
 	
 				<div id="page-content">
-					<h2 class="left"><a href="http://gvsulib.com/labs/computer_availability/">Library Computer Availability</a></h2>
+					<h2 class="left"><a href="#">Library Computer Availability</a></h2>
 				<div class="lib-horizontal-list right">
 				<ul>
 					<li><span class="avail_green legend">&nbsp;</span> Many open </li>
