@@ -696,26 +696,32 @@ if (!empty($_GET['x'])) {
 
 							
 							if($building == "LIB"){
-								if(isset($floor[1])) {
-									if($floor[1] == 1) {
-										$readable_floor = "first";
-										$floor_suffix = "st";
+								if(isset($floor[0])) {
+									if($floor[0] == 'Atrium') {
+										$readable_floor = "Atrium";
+										$floor_suffix = "";
+										$floor_label = $floor[0] . $floor_suffix;
 										//$availableCPU = $availableCPU - 2;
 										$totalCPU = $values['totalPc'];
 
 									} else if($floor[1] == 2) {
+									
 										$readable_floor = "second";
-										$floor_suffix = "nd";
-																	$totalCPU = $values['totalPc'];
+										$floor_suffix = "nd Floor";
+										$floor_label = $floor[1] . $floor_suffix;
+										$totalCPU = $values['totalPc'];
 
 									} else if($floor[1] == 3) {
+										
 										$readable_floor = "third";
-										$floor_suffix = "rd";
-																	$totalCPU = $values['totalPc'];
+										$floor_suffix = "rd Floor";
+										$floor_label = $floor[1] . $floor_suffix;
+										$totalCPU = $values['totalPc'];
 
 									} else if($floor[1] == 4) {
 										$readable_floor = "fourth";
-										$floor_suffix = "th";
+										$floor_suffix = "th Floor";
+										$floor_label = $floor[1] . $floor_suffix;
 										//$availableCPU = $availableCPU - 2;
 										$totalCPU = $values['totalPc'];
 									}
@@ -733,7 +739,7 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 								$availableClass = "avail_yellow";
 							}
 
-									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor[1] . $floor_suffix . '</abbr> Floor</h4>';
+									echo '<div class="span4 unit left"><h4 class="row1 center"><abbr title="' . $readable_floor . '">' . $floor_label . '</abbr></h4>';
 
 							echo '<div id="' . $building . $floor[1] . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 								}
