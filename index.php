@@ -717,6 +717,7 @@ if (!empty($_GET['x'])) {
 										$floor_suffix = "rd Floor";
 										$floor_label = $floor[1] . $floor_suffix;
 										$totalCPU = $values['totalPc'];
+										$availableCPU = $availableCPU - 4;
 
 									} else if($floor[1] == 4) {
 										$readable_floor = "fourth";
