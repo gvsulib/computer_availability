@@ -6,7 +6,7 @@
 
 	<link href="styles.css" rel="stylesheet" />
 
-	<meta http-equiv="refresh" content="60">
+	<meta http-equiv="refresh" content="120">
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
