@@ -792,6 +792,14 @@ $unavailableCPU = ($availableCPU / $totalCPU)*100;
 								$availableClass = "avail_yellow";
 							}
 						}
+						
+						if($floor[0] == '290') {
+							$floor[0] = '2nd Floor';
+						}
+						if($floor[0] == '490') {
+							$floor[0] = '4th Floor';
+						}
+						
 							echo '<div class="span2 unit right"><h4 class="row1 center">' . $floor[0] . '</h4><div id="' . $building . '" class="avail ' . $availableClass . '"><h4 class="available center">' . $availableCPU . '&nbsp;open</span></h4></div></div>';
 
 							
