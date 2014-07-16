@@ -571,7 +571,15 @@ form#summon-search-box { width: 30em; }
 				</div>
 	
 				<div id="page-content">
-					<h2 class="left"><a href="#">Library Computer Availability</a></h2>
+
+                    <?php 
+                        if(isset($_GET['notitle'])){
+                            // no title
+                        } else {
+                            echo '<h2 class="left"><a href="#">Library Computer Availability</a></h2>';
+                        }
+                    ?>
+
 				<div class="lib-horizontal-list right">
 				<ul>
 					<li><span class="avail_green legend">&nbsp;</span> Many open </li>
@@ -656,7 +664,7 @@ if (!empty($_GET['x'])) {
 								printCompAvail("LIB", $building_results);
 
 							echo '</div>';
-						echo '<div class="line" style="clear: left;"><div class="span1 unit"><h5>48 additional computers available in Learn Lab 001 on the Atrium level when not in use by a class</h5></div></div>';		
+						echo '<div class="line" style="clear: left;"><div class="span1 unit"><h5>48 additional computers available in Learn Lab 001 on the Atrium level when not in use by a class</h5></div></div>';	
 
 						} else if(strtolower($_GET['library']) == "steelcase"){
 							echo '<h4 class="banner_title"><a href="?library=steelcase">Steelcase Library</a></h4>';
