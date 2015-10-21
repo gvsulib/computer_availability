@@ -55,6 +55,13 @@ if(isset($_GET['x'])) {
 	
 	}
 }
+if(isset($_GET['notitle'])){
+
+	echo '#cms-content h1,
+	#cms-content h2.banner_title {
+		display: none;
+	}';
+}
 
 ?>
 
@@ -113,13 +120,7 @@ if(isset($_GET['x'])) {
 				<div id="cms-body-table">
 					<div id="cms-content">
 	 	
-<?php 
-	if(isset($_GET['notitle'])){
-        // no title
-    } else {
-       echo '<h1 class="left"><a href="#">Library Computer Availability</a></h1>';
-    }
-?>
+					<h1 class="left"><a href="#">Library Computer Availability</a></h1>
 
 				<div class="lib-horizontal-list right">
 				<ul>
