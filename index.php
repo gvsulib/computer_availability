@@ -202,8 +202,11 @@ if(isset($_GET['x'])) {
 									$availableClass = "avail_yellow";
 								}
 
-								echo '<div class="' . $className . '">
-									<p class="row1 center">' . $name . '</p>
+								echo '<div class="' . $className . '">';
+								if($id == 1) {
+									echo '<h2 class="banner_title"><a href="?library=frey">Frey @ <abbr title="Cook DeVos Center for Health Sciences">CHS</abbr></a></h2>';
+								}
+								echo '<p class="row1 center">' . $name . '</p>
 									<div id="' . $id . '" class="avail ' . $availableClass . '">
 										<p class="available center">' . $availableCPU . '&nbsp;open</p>
 									</div>';
@@ -237,9 +240,10 @@ if(isset($_GET['x'])) {
 
 					function printFrey() {
 						echo '<div class="half" id="chs">
-								<h2 class="banner_title"><a href="?library=frey">Frey @ <abbr title="Cook DeVos Center for Health Sciences">CHS</abbr></a></h2>';
+								<div class="half">&nbsp;</div>';
 									printAvail(1, '290', 'half');
-									printAvail(5, '490', 'half');
+									// Hide 490, since the computers have all moved to CHS 100
+									//printAvail(5, '490', 'half');
 						echo '</div>';
 					}
 					
