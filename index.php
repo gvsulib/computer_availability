@@ -288,6 +288,8 @@ if(isset($_GET['notitle'])){
 							<a href="http://youtube.com/user/gvsulib" title="http://youtube.com/user/gvsulib" class="socialmedia-icon socialmedia-icon-youtube">
 								<span class="cms-screen-reader">http://youtube.com/user/gvsulib</span>
 							</a>
+														<a href="http://instagram.com/gvsulib" title="http://instagram.com/gvsulib" class="socialmedia-icon socialmedia-icon-instagram"><span class="cms-screen-reader">http://instagram.com/gvsulib</span></a>
+
 						</p>
 					</li>
 					<li id="library-fdlp">
