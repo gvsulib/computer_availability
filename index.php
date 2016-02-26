@@ -327,7 +327,7 @@ if(isset($_GET['notitle'])){
 if(isset($_GET['x'])) {
 	if($_GET['x'] == 'true') { } else {
 ?>
-	<script src="//labs.library.gvsu.edu/labs/chatbutton/chatbutton.js"></script>
+	<script src="//gvsuliblabs.com/labs/chatbutton/chatbutton.js"></script>
 	<script src="//gvsu.edu/cms4/skeleton/0/files/js/cms4.0.min.js"></script>
 	<script>cmsInit()</script>
 <?php
