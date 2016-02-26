@@ -84,9 +84,8 @@ if(isset($_GET['x'])) {
     color: #4E4E4E;
     font-family: Arial,sans-serif;
     background-color: #88b3da;
-}
-    '
-};
+}';
+
 	
 	}
 }
