@@ -323,10 +323,17 @@ if(isset($_GET['notitle'])){
 
 	<!-- Special div custom to Illiad -->
 	<div id="renewalHack" style="display: none;"></div>
-
+<?php
+if(isset($_GET['x'])) {
+	if($_GET['x'] == 'true') { } else {
+?>
 	<script src="//labs.library.gvsu.edu/labs/chatbutton/chatbutton.js"></script>
 	<script src="//gvsu.edu/cms4/skeleton/0/files/js/cms4.0.min.js"></script>
 	<script>cmsInit()</script>
+<?php
+	}
+?>
+
 
 </body>
 </html>
