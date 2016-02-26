@@ -105,9 +105,17 @@ if(isset($_GET['notitle'])){
 	<div id="gvsu-cf_header" class="responsive">
 		<div id="gvsu-cf_header-inner">
 			<div id="gvsu-cf_header-logo">
+<?php
+if(isset($_GET['x'])) {
+	if($_GET['x'] == 'true') {
+?>
 				<a href="http://gvsu.edu/">
 					<img src="//gvsu.edu/includes/topbanner/3/gvsu_logo.png" alt="Grand Valley State University">
 				</a>
+<?php
+	}
+}
+?>
 			</div><!-- End #gvsu-cf_header-logo -->
 		</div><!-- End #gvsu-cf_header-inner -->
 	</div><!-- End #gvsu-cf_header -->
@@ -297,7 +305,9 @@ if(isset($_GET['notitle'])){
 			</div><!-- End #cms-body-inner -->
 		</div><!-- end #cms-body -->
 	</div><!-- end #cms-body-wrapper -->
-
+<?php
+	if($_GET['x'] != 'true') {
+?>
 	<div id="cms-footer-wrapper">
 		<div id="cms-footer">
 			<div id="cms-footer-inner">
@@ -353,9 +363,9 @@ if(isset($_GET['notitle'])){
 		</div><!-- End #cms-copyright -->
 	</div><!-- End #cms-copyright-wrapper -->
 
-	<!-- Special div custom to Illiad -->
-	<div id="renewalHack" style="display: none;"></div>
 <?php
+}
+
 if(isset($_GET['x'])) {
 	if($_GET['x'] == 'true') { } else {
 ?>
