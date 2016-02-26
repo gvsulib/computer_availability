@@ -104,15 +104,13 @@ if(isset($_GET['notitle'])){
 		<div id="gvsu-cf_header-inner">
 			<div id="gvsu-cf_header-logo">
 <?php
-if(isset($_GET['x'])) {
-	if($_GET['x'] == 'true') {
+	if($_GET['x'] != 'true') {
 ?>
 				<a href="http://gvsu.edu/">
 					<img src="//gvsu.edu/includes/topbanner/3/gvsu_logo.png" alt="Grand Valley State University">
 				</a>
 <?php
 	}
-}
 ?>
 			</div><!-- End #gvsu-cf_header-logo -->
 		</div><!-- End #gvsu-cf_header-inner -->
@@ -121,9 +119,15 @@ if(isset($_GET['x'])) {
 	<div id="cms-header-wrapper">
 		<div id="cms-header">
 			<div id="cms-header-inner">
+<?php
+	if($_GET['x'] != 'true') {
+?>
 				<a id="cms-navigation-toggle" href="cms-siteindex-index.htm" onclick="return cmsToggleMenu(document.getElementById('cms-navigation'))">
 					<img src=" //gvsu.edu/cms4/skeleton/0/files/img/transparent.png" alt="Menu">
 				</a>
+<?php
+}
+?>
 				<h1>
 					<a href="http://gvsu.edu/library">University Libraries</a>
 				</h1>
