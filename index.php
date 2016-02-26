@@ -5,8 +5,7 @@
 	
 	<title>Computer Availability - University Libraries - Grand Valley State University</title>
 <?php
-if(isset($_GET['x'])) {
-	if($_GET['x'] == 'true') {
+if($_GET['x'] == 'true') {
 ?>
 	<meta http-equiv="refresh" content="180">
 <?php 
@@ -15,7 +14,6 @@ if(isset($_GET['x'])) {
 	<meta http-equiv="refresh" content="900">
 	<link rel="stylesheet" type="text/css" href="//gvsuliblabs.com/labs/libguides/css/styles.css" />
 <?php 
-	}
 }
 ?>
 
