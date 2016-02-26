@@ -14,7 +14,6 @@ if(isset($_GET['x'])) {
 ?>
 	<meta http-equiv="refresh" content="900">
 <?php 
-<?php
 	}
 ?>
 
