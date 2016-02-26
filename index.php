@@ -15,6 +15,7 @@ if(isset($_GET['x'])) {
 	<meta http-equiv="refresh" content="900">
 <?php 
 	}
+}
 ?>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
