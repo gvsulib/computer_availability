@@ -332,6 +332,7 @@ if(isset($_GET['x'])) {
 	<script>cmsInit()</script>
 <?php
 	}
+}
 ?>
 
 
