@@ -4,8 +4,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title>Computer Availability - University Libraries - Grand Valley State University</title>
-	
-	<meta http-equiv="refresh" content="120">
+<?php
+if(isset($_GET['x'])) {
+	if($_GET['x'] == 'true') {
+?>
+	<meta http-equiv="refresh" content="180">
+<?php 
+	} else {
+?>
+	<meta http-equiv="refresh" content="900">
+<?php 
+<?php
+	}
+?>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<meta name="description" content="Course Reserve at the GVSU University Libraries brings course readings and materials in one place for easy access.">
 	<meta name="keywords" content="course reserve,course reserves,reserves,gvsu,grand valley,library, libraries,research tools">
