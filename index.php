@@ -13,6 +13,7 @@ if(isset($_GET['x'])) {
 	} else {
 ?>
 	<meta http-equiv="refresh" content="900">
+	<link rel="stylesheet" type="text/css" href="//gvsuliblabs.com/labs/libguides/css/styles.css" />
 <?php 
 	}
 }
@@ -24,7 +25,6 @@ if(isset($_GET['x'])) {
 
 	<!-- Custom CSS -->
 
-	<link rel="stylesheet" type="text/css" href="//gvsuliblabs.com/labs/libguides/css/styles.css" />
 	<style>
 	.lib-horizontal-list.right ul { list-style: none; }
 	.center { text-align: center;}
@@ -181,7 +181,7 @@ if(isset($_GET['notitle'])){
 					
 					
 					
-							echo '<div class="row">
+							echo '<div class="row" style="clear:both;">
 									<div class="span3 cms-chunk-html">
 										<div class="cms-chunk-inner">';
 
