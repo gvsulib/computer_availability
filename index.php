@@ -64,7 +64,29 @@ if(isset($_GET['x'])) {
 	}
 	#cms-body {
 		width: 100%;
-	}';
+	}
+	#cms-content a {
+    	color: #1F65A0;
+    	text-decoration: none;
+	}
+    #cms-body h1 {
+    	font-size: 2em;
+	}
+	#cms-body h1, #cms-body h2, #cms-body h3, #cms-body h4, #cms-body h5, #cms-body h6 {
+    font-family: AlternateGothicFSNo3,Arial,sans-serif;
+    font-weight: 100;
+    margin-bottom: 11px;
+    line-height: 1em;
+	}
+	body {
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #4E4E4E;
+    font-family: Arial,sans-serif;
+    background-color: #88b3da;
+}
+    '
+};
 	
 	}
 }
