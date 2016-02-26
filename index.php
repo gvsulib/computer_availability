@@ -50,7 +50,7 @@ if(isset($_GET['x'])) {
 if(isset($_GET['x'])) {
 	if($_GET['x'] == 'true') {
 
-	echo '.span4 { width: 22%; }
+	echo '@font-face {font-family: "AlternateGothicFSNo3";src: url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.eot");src: url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.eot?#iefix") format("embedded-opentype"), url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.woff") format("woff"), url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.ttf") format("truetype"), url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.svg#AlternateGothicFSNo3") format("svg");font-weight: normal;font-style: normal;}.span4 { width: 22%; }
 	#gvsu-cf_header,
 	#cms-header-wrapper,
 	#cms-footer-wrapper,
@@ -83,7 +83,6 @@ if(isset($_GET['x'])) {
     line-height: 1.5em;
     color: #4E4E4E;
     font-family: Arial,sans-serif;
-    background-color: #88b3da;
 }';
 
 	
