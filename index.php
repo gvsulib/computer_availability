@@ -165,16 +165,16 @@ if(isset($_GET['notitle'])){
 	 	
 					<h1 class="left"><a href="#">Library Computer Availability</a></h1>
 
-				<div class="lib-horizontal-list right">
+				<!--div class="lib-horizontal-list right">
 				<ul>
 					<li><span class="avail_green legend">&nbsp;</span> Many open </li>
 					<li><span class="avail_yellow legend">&nbsp;</span> Few open</li>
 					<li><span class="avail_red legend">&nbsp;</span> None open</li>
 				</ul>
-			</div>
+			</div-->
 
 			<div class="alert alert-danger">
-				<p>The campus-wide computer availability service is currently unavailable, and has been reported to Information Technology. We apologize for any inconvenience.</p>
+				<p>The campus-wide computer availability service is currently unavailable. The problem has been reported to Information Technology. We apologize for any inconvenience.</p>
 			</div>
 
 			    	
