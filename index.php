@@ -173,11 +173,18 @@ if(isset($_GET['notitle'])){
 				</ul>
 			</div>
 
+			<div class="alert alert-danger">
+				<p>The campus-wide computer availability service is currently unavailable, and has been reported to Information Technology. We apologize for any inconvenience.</p>
+			</div>
+
 			    	
+
 
 
 					
 					<?php
+
+					/*
 					// Grab JSON dump of available computers and parse
 
 					$json = file_get_contents('http://gvsu.edu/tools/lab/api/room.cfm');
@@ -290,7 +297,8 @@ if(isset($_GET['notitle'])){
 									//printAvail(5, '490', 'half');
 						echo '</div>';
 					}
-					
+					*/
+
 					?>
 
 					
