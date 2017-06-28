@@ -1,5 +1,9 @@
+<?php
+date_default_timezone_set('America/New_York');
+?>
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -12,7 +16,7 @@ if($_GET['x'] == 'true') {
 	} else {
 ?>
 	<meta http-equiv="refresh" content="900">
-	<link rel="stylesheet" type="text/css" href="//gvsuliblabs.com/labs/libguides/css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="https://prod.library.gvsu.edu/labs/libguides/css/styles.css" />
 <?php 
 }
 ?>
@@ -48,7 +52,7 @@ if($_GET['x'] == 'true') {
 if(isset($_GET['x'])) {
 	if($_GET['x'] == 'true') {
 
-	echo '@font-face {font-family: "AlternateGothicFSNo3";src: url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.eot");src: url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.eot?#iefix") format("embedded-opentype"), url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.woff") format("woff"), url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.ttf") format("truetype"), url("//gvsuliblabs.com/libs/fonts/AlternateGothicNo3-webfont.svg#AlternateGothicFSNo3") format("svg");font-weight: normal;font-style: normal;}.span4 { width: 22%; }
+	echo '@font-face {font-family: "AlternateGothicFSNo3";src: url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.eot");src: url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.eot?#iefix") format("embedded-opentype"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.woff") format("woff"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.ttf") format("truetype"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.svg#AlternateGothicFSNo3") format("svg");font-weight: normal;font-style: normal;}.span4 { width: 22%; }
 	#gvsu-cf_header,
 	#cms-header-wrapper,
 	#cms-footer-wrapper,
@@ -106,8 +110,8 @@ if(isset($_GET['notitle'])){
 <?php
 	if($_GET['x'] != 'true') {
 ?>
-				<a href="http://gvsu.edu/">
-					<img src="//gvsu.edu/includes/topbanner/3/gvsu_logo.png" alt="Grand Valley State University">
+				<a href="https://www.gvsu.edu/">
+					<img src="https://www.gvsu.edu/includes/topbanner/3/gvsu_logo.png" alt="Grand Valley State University">
 				</a>
 <?php
 	}
@@ -123,16 +127,16 @@ if(isset($_GET['notitle'])){
 	if($_GET['x'] != 'true') {
 ?>
 				<a id="cms-navigation-toggle" href="cms-siteindex-index.htm" onclick="return cmsToggleMenu(document.getElementById('cms-navigation'))">
-					<img src=" //gvsu.edu/cms4/skeleton/0/files/img/transparent.png" alt="Menu">
+					<img src="https://www.gvsu.edu/cms4/skeleton/0/files/img/transparent.png" alt="Menu">
 				</a>
 <?php
 }
 ?>
 				<h1>
-					<a href="http://gvsu.edu/library">University Libraries</a>
+					<a href="https://www.gvsu.edu/library">University Libraries</a>
 				</h1>
 				<div id="library-search">
-					<form action="//gvsu.summon.serialssolutions.com/search">
+					<form action="https://gvsu.summon.serialssolutions.com/search">
 						<input type="hidden" name="spellcheck" value="true">
 						<p>
 							<label for="library-search-box" class="hide-accessible">Search the Library for Books, Articles, Media, and More</label>
@@ -144,9 +148,9 @@ if(isset($_GET['notitle'])){
 					
 			<div class="cms-navigation" id="cms-navigation">
 				<ul>
-					<li><a href="http://gvsu.edu/library/find">Find Materials</a></li>
-					<li><a href="http://gvsu.edu/library/allservices">Services</a></li>
-					<li><a href="http://gvsu.edu/library/about">About Us</a></li>
+					<li><a href="https://www.gvsu.edu/library/find">Find Materials</a></li>
+					<li><a href="https://www.gvsu.edu/library/allservices">Services</a></li>
+					<li><a href="https://www.gvsu.edu/library/about">About Us</a></li>
 					<li><a href="http://help.library.gvsu.edu">Help</a></li>
 				</ul>
 			</div><!-- End #cms-navigation -->
@@ -187,7 +191,37 @@ if(isset($_GET['notitle'])){
 					
 					// Grab JSON dump of available computers and parse
 
-					$json = file_get_contents('http://gvsu.edu/tools/lab/api/room.cfm');
+					$now = time();
+					$threshold = $now - 475;
+					echo '<!-- Now: ' . $now . ' // Threshold: ' . $threshold . '-->';
+					$time_file = file_get_contents('https://prod.library.gvsu.edu/computer_availability/refresh.json');
+
+					echo '<script>console.log(' . $time_file . ');</script>';
+
+					if($threshold > $time_file) {
+
+						// Pull the live version
+						$json = file_get_contents('http://gvsu.edu/tools/lab/api/room.cfm');
+
+						// Cache the live version locally
+						file_put_contents('api.json', $json);
+
+						// Update the time refreshed
+						if(file_put_contents('refresh.json', $now)) {
+							echo '<script>console.log("Saved new timestamp");</script>';
+						} else {
+							echo '<script>console.log("Unable to save new timestamp");</script>';
+						}
+						echo '<script>console.log("Pulling live JSON");</script>';
+						$time_file = $now;
+
+					} else {
+
+						// Pull the local cached version of the API
+						$json = file_get_contents('https://prod.library.gvsu.edu/computer_availability/api.json');
+
+						echo '<script>console.log("Pulling cached JSON");</script>';
+					}
 
 
 					$results = json_decode($json, true);
@@ -301,6 +335,7 @@ if(isset($_GET['notitle'])){
 
 					?>
 
+					<p>Last updated at <?php echo date('g:i a M j, Y', $time_file); ?></p>
 					
 					<div class="cms-clear"></div>
 					<div id="cms-content-footer">
@@ -335,20 +370,20 @@ if(isset($_GET['notitle'])){
 					</li>
 					<li><h4>Social Media</h4>
 						<p>
-							<a href="http://twitter.com/gvsulib" title="http://twitter.com/gvsulib" class="socialmedia-icon socialmedia-icon-twitter">
-								<span class="cms-screen-reader">http://twitter.com/gvsulib</span>
+							<a href="https://twitter.com/gvsulib" title="https://twitter.com/gvsulib" class="socialmedia-icon socialmedia-icon-twitter">
+								<span class="cms-screen-reader">https://twitter.com/gvsulib</span>
 							</a>
-							<a href="http://youtube.com/user/gvsulib" title="http://youtube.com/user/gvsulib" class="socialmedia-icon socialmedia-icon-youtube">
-								<span class="cms-screen-reader">http://youtube.com/user/gvsulib</span>
+							<a href="https://youtube.com/user/gvsulib" title="https://youtube.com/user/gvsulib" class="socialmedia-icon socialmedia-icon-youtube">
+								<span class="cms-screen-reader">https://youtube.com/user/gvsulib</span>
 							</a>
-														<a href="http://instagram.com/gvsulib" title="http://instagram.com/gvsulib" class="socialmedia-icon socialmedia-icon-instagram"><span class="cms-screen-reader">http://instagram.com/gvsulib</span></a>
+														<a href="https://instagram.com/gvsulib" title="https://instagram.com/gvsulib" class="socialmedia-icon socialmedia-icon-instagram"><span class="cms-screen-reader">https://instagram.com/gvsulib</span></a>
 
 						</p>
 					</li>
 					<li id="library-fdlp">
 								<p>
-									<a href="http://gvsu.edu/library/govdoc" target="_blank">
-										<img src="//wwwtest.gvsu.edu/cms4/asset/0862059E-9024-5893-1B5AAAC2F83BDDD8/fdlp-new.png" alt="Federal Depository Library Program Logo">
+									<a href="https://www.gvsu.edu/library/govdoc" target="_blank">
+										<img src="https://www.gvsu.edu/cms4/asset/0862059E-9024-5893-1B5AAAC2F83BDDD8/fdlp-new.png" alt="Federal Depository Library Program Logo">
 									</a>
 									<br>
 									Federal Depository<br>
@@ -364,9 +399,9 @@ if(isset($_GET['notitle'])){
 		<div id="cms-copyright">
 			<div id="cms-copyright-inner">
 				<ul>
-					<li><a href="http://gvsu.edu/affirmativeactionstatement.htm">GVSU is an EO/AA Institutio</a></li>
-					<li><a href="http://gvsu.edu/privacystatement.htm">Privacy Policy</a></li>
-					<li><a href="http://gvsu.edu/disclosures">Disclosures</a></li>
+					<li><a href="https://www.gvsu.edu/affirmativeactionstatement.htm">GVSU is an EO/AA Institutio</a></li>
+					<li><a href="https://www.gvsu.edu/privacystatement.htm">Privacy Policy</a></li>
+					<li><a href="https://www.gvsu.edu/disclosures">Disclosures</a></li>
 					<li>Copyright © 1995-2015 GVSU</li>
 				</ul>
 			</div><!-- End #cms-copyright-inner -->
@@ -376,14 +411,12 @@ if(isset($_GET['notitle'])){
 <?php
 }
 
-if(isset($_GET['x'])) {
-	if($_GET['x'] == 'true') { } else {
+if(isset($_GET['x'])) { } else {
 ?>
-	<script src="//gvsuliblabs.com/labs/chatbutton/chatbutton.js"></script>
-	<script src="//gvsu.edu/cms4/skeleton/0/files/js/cms4.0.min.js"></script>
+	<script src="https://prod.library.gvsu.edu/labs/chatbutton/chatbutton.js"></script>
+	<script src="https://www.gvsu.edu/cms4/skeleton/0/files/js/cms4.0.min.js"></script>
 	<script>cmsInit()</script>
 <?php
-	}
 }
 ?>
 
