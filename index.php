@@ -1,5 +1,311 @@
 <?php
 date_default_timezone_set('America/New_York');
+
+//Custom variables to contain chunks of HTML and style rules that will only get included in specific circumstances
+//it's a lot easier to follow the descision code if we store all this in strings
+
+$header = <<<EOT
+
+<div role="banner">
+			<a href="#main" class="focus-inverted">Skip to main content</a>
+			
+			
+			<div class="header">
+				<div class="row content">
+					<div class="col-5 col-sm-12 logo">
+						<div class="col-12 col-sm-9">
+							<h1>
+								<a href="https://www.gvsu.edu">
+									<!--[if lte IE 8|!IE]>
+										<img src="/homepage/files/img/gvsu_logo_white.png" alt="Grand Valley State University Logo" />
+									<![endif]-->
+									<!--[if gte IE 9|!IE]><!-->
+										<img src="https://gvsu.edu/homepage/files/img/gvsu_logo_white.svg" alt="Grand Valley State University Logo" onerror="this.onerror=null;this.src='https://gvsu.edu/homepage/files/img/gvsu_logo_white.png'">
+									<!--<![endif]-->
+									<span id="gv-logo-label" class="sr-only" aria-hidden="true">Grand Valley State University</span>
+								</a>
+							</h1>
+						</div>
+						<div class="hide-lg hide-md col-sm-3">
+							<a id="gv-hamburger" role="button" tabindex="0" aria-label="Menu" aria-controls="cms-navigation-mobile">
+								<img src="https://prod.library.gvsu.edu/labs/cms4.1_files/menu.png" alt="" style="width:auto;min-width:auto;" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+					<div class="col-7 col-sm-12 quick hide-print hide-sm">
+						
+					</div>
+				</div>
+			</div>
+			<div class="site">
+				<div class="row content">
+					<div class="col-8 col-sm-12">
+						<h1 class="h2 serif padding-none">
+							<a href="https://gvsu.edu/library">
+								University Libraries
+							</a>
+						</h1>
+						<h2 class="sr-only">Search</h2>
+						<form action="https://gvsu.summon.serialssolutions.com/search" class="library-search" role="search">
+							<input name="spellcheck" value="true" type="hidden">
+							<p>
+								<label for="s.q" class="sr-only">
+									Search the Library for Articles, Books, and More
+								</label>
+								<input id="s.q" name="s.q" placeholder="Find articles, books, &amp; more" size="45" type="text"><button type="submit">Find It!</button>
+							</p>
+						</form>
+						<div class="library-nav">
+							<h3>More research tools:</h3>
+							<ul>
+								<li>
+									<a href="https://libguides.gvsu.edu/az.php">Databases</a>
+								</li>
+								<li>
+									<a href="https://gvsu.edu/library/findbooks">Books</a>
+								</li>
+								<li>
+									<a href="https://gvsu.edu/library/findjournals">Journals</a>
+								</li>
+								<li>
+									<a href="https://libguides.gvsu.edu/">Subject Guides</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-4 col-sm-12 library-hours">
+							
+					</div>
+				</div>
+			</div>
+			
+				<div id="cms-navigation" class="navigation hide-sm hide-print">
+					<div class="content">
+						<div role="navigation">
+	<ul role="menubar">
+		
+					<li>
+						<a href="https://gvsu.edu/library/find-materials-2.htm" target="_self">
+							Find Materials
+						</a>
+					</li>
+				
+					<li>
+						<a href="https://gvsu.edu/library/services-4.htm" target="_self">
+							Services
+						</a>
+					</li>
+				
+					<li>
+						<a href="hhttps://gvsu.edu/library/about-the-university-libraries-3.htm" target="_self">
+							About Us
+						</a>
+					</li>
+				
+					<li>
+						<a href="https://help.library.gvsu.edu" target="_self">
+							Help
+						</a>
+					</li>
+				
+					<li>
+						<a href="https://www.gvsu.edu/library/myaccount" target="_self">
+							My Account
+						</a>
+					</li>
+				
+	</ul>
+</div>
+					</div>
+				</div>
+			
+		</div>
+
+EOT;
+
+$customStyle = <<<EOT
+
+@font-face {font-family: "AlternateGothicFSNo3";src: url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.eot");src: url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.eot?#iefix") format("embedded-opentype"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.woff") format("woff"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.ttf") format("truetype"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.svg#AlternateGothicFSNo3") format("svg");font-weight: normal;font-style: normal;}.span4 { width: 22%; }
+	
+	body {
+		background-color: #fff; 
+	}
+	#cms-content {
+		width: 100%;
+	}
+	#cms-content a {
+    	color: #1F65A0;
+    	text-decoration: none;
+	}
+    #cms-content h1 {
+    	font-size: 2em;
+	}
+	#cms-content h1, #cms-content h2, #cms-content h3, #cms-content h4, #cms-content h5, #cms-content h6 {
+    font-family: AlternateGothicFSNo3,Arial,sans-serif;
+    font-weight: 100;
+    margin-bottom: 11px;
+    line-height: 1em;
+	}
+	body {
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #4E4E4E;
+    font-family: Arial,sans-serif;
+	}
+
+EOT;
+
+$footer = <<<EOD
+<div class="clear hide-sm"></div>
+					<div class="hide-print">
+				<br>
+				<hr>
+				
+			<div class="row">
+				<div class="col-6">
+					
+						
+				</div>
+				<div class="col-6 text-right">
+					
+						<a href="https://prod.library.gvsu.edu/status/?problem" class="cms-report-problem">Report a problem with this page</a>
+					
+				</div>
+			</div>
+		
+			</div>
+							<script>
+								var thisUrl = encodeURI(window.location);
+								document.getElementById('problem-link').href = 'https://prod.library.gvsu.edu/status/?problem&url=' + thisUrl;
+							</script> 
+
+			</div>
+	</div>
+</div>
+
+	<div role="contentinfo">
+			
+				<div class="footer hide-print">
+					<div class="content">
+						<h1 class="sr-only">Footer</h1>
+						<div class="row-gutter">
+							
+								<div class="col-3 col-md-4 col-sm-6">
+									<h2 class="padding-none color-white">
+										Contact
+									</h2>
+									
+											<p class="vcard">
+												
+														<span class="tel">
+															<span class="value">
+																<a href="tel:616-331-3500">(616) 331-3500</a>
+															</span>
+															
+														</span>
+														<br>
+													
+														<a href="mailto:library@gvsu.edu" class="email">library@gvsu.edu</a>
+														<br>
+													
+											</p>
+											
+												<br>
+											
+											<p class="vcard">
+												
+														<span class="fn">Text Us!</span>
+														<br>
+													
+														<span class="tel">
+															<span class="value">
+																<a href="sms:616-818-0219">(616) 818-0219</a>
+															</span>
+															
+														</span>
+														<br>
+													
+											</p>
+											
+								</div>
+							
+								<div class="col-3 col-md-4 col-sm-6">
+									<h2 class="padding-none color-white">
+										Social Media
+									</h2>
+									
+											<p>
+												
+													<a href="https://twitter.com/gvsulib" title="Twitter" class="text-nodecoration" target="_blank">
+														<img src="https://prod.library.gvsu.edu/labs/cms4.1_files/twitter.png" alt="" style="width:auto;min-width:auto;" />
+														<span class="sr-only">https://twitter.com/gvsulib</span>
+													</a>
+												
+													<a href="https://youtube.com/user/gvsulib" title="YouTube" class="text-nodecoration" target="_blank">
+														<img src="https://prod.library.gvsu.edu/labs/cms4.1_files/youtube.png" alt="" style="width:auto;min-width:auto;" />
+														<span class="sr-only">https://youtube.com/user/gvsulib</span>
+													</a>
+												
+													<a href="https://instagram.com/gvsulib" title="Instagram" class="text-nodecoration" target="_blank">
+														<img src="https://prod.library.gvsu.edu/labs/cms4.1_files/instagram.png" alt="" style="width:auto;min-width:auto;" />
+														<span class="sr-only">https://instagram.com/gvsulib</span>
+													</a>
+												
+											</p>
+											
+										<br class="hide-lg hide-md">
+									
+								</div>
+							
+							<div class="col-3 col-md-4 col-sm-6">
+								<h2 class="padding-none color-white">
+									Committed to Equality
+								</h2>
+								<a href="https://gvsu.edu/library/acrl" target="_blank">
+									<img src="https://www.gvsu.edu/cms4/asset/0862059E-9024-5893-1B5AAAC2F83BDDD8/acrl.png" alt="ACRL Diversity Alliance Logo" style="width:auto;max-width:100%;">
+								</a>
+							</div>
+							<div class="col-3 col-md-4 col-sm-6">
+								<h2 class="padding-none color-white">
+									Federal Depository Library Program
+								</h2>
+								<a href="https://gvsu.edu/library/govdoc" target="_blank">
+									<img src="https://www.gvsu.edu/cms4/asset/0862059E-9024-5893-1B5AAAC2F83BDDD8/fdlp-new.png" alt="Federal Depository Library Program Logo" style="width:auto;max-width:100%;">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom hide-print">
+		<div class="content">
+			<div class="row-gutter">
+				<div class="col-12 legal">
+					<h2 class="sr-only">Legal</h2>
+					<ul>
+						<li>
+							<a href="https://gvsu.edu/affirmativeactionstatement.htm"><span class="hide-sm hide-md">GVSU is an </span>AA/EO Institution</a>
+						</li>
+						<li>
+							<a href="https://gvsu.edu/privacystatement.htm">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="https://gvsu.edu/disclosures">Disclosures</a>
+						</li>
+						<li>
+							<span class="hide-sm hide-md">Copyright </span>© 2018 GVSU
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://prod.library.gvsu.edu/labs/chatbutton/chatbutton.js"></script>
+
+
+EOD;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -9,16 +315,24 @@ date_default_timezone_set('America/New_York');
 	
 	<title>Computer Availability - University Libraries - Grand Valley State University</title>
 <?php
-if($_GET['x'] == 'true') {
-?>
-	<meta http-equiv="refresh" content="180">
-<?php 
+
+if (isset($_GET['x'])) {
+	if($_GET['x'] == 'true') {
+
+		echo '<meta http-equiv="refresh" content="180">';
+
 	} else {
-?>
-	<meta http-equiv="refresh" content="900">
-	<link rel="stylesheet" type="text/css" href="https://prod.library.gvsu.edu/labs/libguides/css/styles.css" />
-<?php 
+
+		echo '<meta http-equiv="refresh" content="900">';
+		echo '<link rel="stylesheet" type="text/css" href="https://prod.library.gvsu.edu/labs/ares/css/styles.css" />';
+
+	}
+} else {
+	echo '<meta http-equiv="refresh" content="900">';
+	echo '<link rel="stylesheet" type="text/css" href="https://prod.library.gvsu.edu/labs/ares/css/styles.css" />';
+
 }
+
 ?>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -49,53 +363,21 @@ if($_GET['x'] == 'true') {
 
 <?php
 
-if(isset($_GET['x'])) {
+if (isset($_GET['x'])) {
 	if($_GET['x'] == 'true') {
-
-	echo '@font-face {font-family: "AlternateGothicFSNo3";src: url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.eot");src: url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.eot?#iefix") format("embedded-opentype"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.woff") format("woff"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.ttf") format("truetype"), url("//prod.library.gvsu.edu/libs/fonts/AlternateGothicNo3-webfont.svg#AlternateGothicFSNo3") format("svg");font-weight: normal;font-style: normal;}.span4 { width: 22%; }
-	#gvsu-cf_header,
-	#cms-header-wrapper,
-	#cms-footer-wrapper,
-	#cms-copyright-wrapper,
-	#cms-content-footer {
-		display: none;
-	}
-	#cms-body-wrapper,
-	body {
-		background-color: #fff; 
-	}
-	#cms-body {
-		width: 100%;
-	}
-	#cms-content a {
-    	color: #1F65A0;
-    	text-decoration: none;
-	}
-    #cms-body h1 {
-    	font-size: 2em;
-	}
-	#cms-body h1, #cms-body h2, #cms-body h3, #cms-body h4, #cms-body h5, #cms-body h6 {
-    font-family: AlternateGothicFSNo3,Arial,sans-serif;
-    font-weight: 100;
-    margin-bottom: 11px;
-    line-height: 1em;
-	}
-	body {
-    font-size: 16px;
-    line-height: 1.5em;
-    color: #4E4E4E;
-    font-family: Arial,sans-serif;
-}';
-
+		echo $customStyle;
 	
-	}
-}
+	}	
+} 
 if(isset($_GET['notitle'])){
 
-	echo '#cms-content h1,
+	echo <<<EOD
+	
+	#cms-content h1,
 	#cms-content h2.banner_title {
 		display: none;
-	}';
+	}
+EOD;
 }
 
 ?>
@@ -103,69 +385,24 @@ if(isset($_GET['notitle'])){
 	</style>
 </head>
 <body>
-	 	
-	<div id="gvsu-cf_header" class="responsive">
-		<div id="gvsu-cf_header-inner">
-			<div id="gvsu-cf_header-logo">
 <?php
-	if($_GET['x'] != 'true') {
-?>
-				<a href="https://www.gvsu.edu/">
-					<img src="https://www.gvsu.edu/includes/topbanner/3/gvsu_logo.png" alt="Grand Valley State University">
-				</a>
-<?php
+if (isset($_GET['x'])) {
+	if ($_GET['x'] != 'true') {
+		echo $header;
 	}
-?>
-			</div><!-- End #gvsu-cf_header-logo -->
-		</div><!-- End #gvsu-cf_header-inner -->
-	</div><!-- End #gvsu-cf_header -->
-
-	<div id="cms-header-wrapper">
-		<div id="cms-header">
-			<div id="cms-header-inner">
-<?php
-	if($_GET['x'] != 'true') {
-?>
-				<a id="cms-navigation-toggle" href="cms-siteindex-index.htm" onclick="return cmsToggleMenu(document.getElementById('cms-navigation'))">
-					<img src="https://www.gvsu.edu/cms4/skeleton/0/files/img/transparent.png" alt="Menu">
-				</a>
-<?php
+} else {
+	echo $header;
 }
 ?>
-				<h1>
-					<a href="https://www.gvsu.edu/library">University Libraries</a>
-				</h1>
-				<div id="library-search">
-					<form action="https://gvsu.summon.serialssolutions.com/search">
-						<input type="hidden" name="spellcheck" value="true">
-						<p>
-							<label for="library-search-box" class="hide-accessible">Search the Library for Books, Articles, Media, and More</label>
-							<input id="library-search-box" type="text" name="s.q" placeholder="Find articles, books, &amp; more" size="35">
-							<input type="submit" value="Find It!">
-						</p>
-					</form>
-				</div><!-- End #library-search -->
-					
-			<div class="cms-navigation" id="cms-navigation">
-				<ul>
-					<li><a href="https://www.gvsu.edu/library/find">Find Materials</a></li>
-					<li><a href="https://www.gvsu.edu/library/allservices">Services</a></li>
-					<li><a href="https://www.gvsu.edu/library/about">About Us</a></li>
-					<li><a href="http://help.library.gvsu.edu">Help</a></li>
-				</ul>
-			</div><!-- End #cms-navigation -->
 
-			<div class="cms-clear"></div>
+
+
+
+
+<div role="main" id="main">
+	<div class="content">
 		
-			</div> <!-- End #cms-header-inner -->
-		</div><!-- End #cms-header -->
-	</div><!-- End #cms-header-wrapper -->
-
-	<div id="cms-body-wrapper">
-		<div id="cms-body">
-			<div id="cms-body-inner">
-				<div id="cms-body-table">
-					<div id="cms-content">
+		<div id="cms-content">
 	 	
 					<h1 class="left"><a href="#">Library Computer Availability</a></h1>
 
@@ -338,85 +575,21 @@ if(isset($_GET['notitle'])){
 					<p>Last updated at <?php echo date('g:i a M j, Y', $time_file); ?></p>
 					
 					<div class="cms-clear"></div>
-					<div id="cms-content-footer">
-							
-							
-						<a href="http://labs.library.gvsu.edu/status/?problem" class="cms-report-problem">report a problem with this page</a>
-						
-						</div>
-
-											</div><!-- End #cms-content -->
-				</div><!-- End #cms-body-table -->
-			</div><!-- End #cms-body-inner -->
-		</div><!-- end #cms-body -->
-	</div><!-- end #cms-body-wrapper -->
+					
+				
+		</div>
+	</div>
+</div>
 <?php
+if (isset($_GET['x'])) {
+
 	if($_GET['x'] != 'true') {
-?>
-	<div id="cms-footer-wrapper">
-		<div id="cms-footer">
-			<div id="cms-footer-inner">
-				<ul>
-					<li><h4>Contact</h4>
-						<p class="vcard">
-							<span class="tel"> 
-								<span class="type">Phone</span>:
-								<span class="value">(616) 331-3500</span>
-							</span>
-							<br />
-							<a href="mailto:library@gvsu.edu" class="email" target="_blank">library@gvsu.edu</a>
-							<br />
-						</p>
-					</li>
-					<li><h4>Social Media</h4>
-						<p>
-							<a href="https://twitter.com/gvsulib" title="https://twitter.com/gvsulib" class="socialmedia-icon socialmedia-icon-twitter">
-								<span class="cms-screen-reader">https://twitter.com/gvsulib</span>
-							</a>
-							<a href="https://youtube.com/user/gvsulib" title="https://youtube.com/user/gvsulib" class="socialmedia-icon socialmedia-icon-youtube">
-								<span class="cms-screen-reader">https://youtube.com/user/gvsulib</span>
-							</a>
-														<a href="https://instagram.com/gvsulib" title="https://instagram.com/gvsulib" class="socialmedia-icon socialmedia-icon-instagram"><span class="cms-screen-reader">https://instagram.com/gvsulib</span></a>
+		echo $footer;
 
-						</p>
-					</li>
-					<li id="library-fdlp">
-								<p>
-									<a href="https://www.gvsu.edu/library/govdoc" target="_blank">
-										<img src="https://www.gvsu.edu/cms4/asset/0862059E-9024-5893-1B5AAAC2F83BDDD8/fdlp-new.png" alt="Federal Depository Library Program Logo">
-									</a>
-									<br>
-									Federal Depository<br>
-									Library Program
-								</p>
-							</li>
-				</ul>
-			</div><!-- End #cms-footer-inner -->
-		</div><!-- End #cms-footer -->
-	</div><!-- End #cms-footer-wrapper -->
+	}
 
-	<div id="cms-copyright-wrapper">
-		<div id="cms-copyright">
-			<div id="cms-copyright-inner">
-				<ul>
-					<li><a href="https://www.gvsu.edu/affirmativeactionstatement.htm">GVSU is an EO/AA Institutio</a></li>
-					<li><a href="https://www.gvsu.edu/privacystatement.htm">Privacy Policy</a></li>
-					<li><a href="https://www.gvsu.edu/disclosures">Disclosures</a></li>
-					<li>Copyright © 1995-2015 GVSU</li>
-				</ul>
-			</div><!-- End #cms-copyright-inner -->
-		</div><!-- End #cms-copyright -->
-	</div><!-- End #cms-copyright-wrapper -->
-
-<?php
-}
-
-if(isset($_GET['x'])) { } else {
-?>
-	<script src="https://prod.library.gvsu.edu/labs/chatbutton/chatbutton.js"></script>
-	<script src="https://www.gvsu.edu/cms4/skeleton/0/files/js/cms4.0.min.js"></script>
-	<script>cmsInit()</script>
-<?php
+} else {
+	echo $footer;
 }
 ?>
 
