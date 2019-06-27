@@ -241,9 +241,9 @@ $footer = <<<EOD
 														<span class="sr-only">https://twitter.com/gvsulib</span>
 													</a>
 												
-													<a href="https://youtube.com/user/gvsulib" title="YouTube" class="text-nodecoration" target="_blank">
+													<a href="https://www.youtube.com/channel/UCE5pH3lsWVQ9PbWGDE6EyFA" title="YouTube" class="text-nodecoration" target="_blank">
 														<img src="https://prod.library.gvsu.edu/labs/cms4.1_files/youtube.png" alt="" style="width:auto;min-width:auto;" />
-														<span class="sr-only">https://youtube.com/user/gvsulib</span>
+														<span class="sr-only">https://www.youtube.com/channel/UCE5pH3lsWVQ9PbWGDE6EyFA</span>
 													</a>
 												
 													<a href="https://instagram.com/gvsulib" title="Instagram" class="text-nodecoration" target="_blank">
