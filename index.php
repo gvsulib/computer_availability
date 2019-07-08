@@ -167,17 +167,15 @@ $footer = <<<EOD
 						
 				</div>
 				<div class="col-6 text-right">
-					
-						<a href="https://prod.library.gvsu.edu/status/?problem" class="cms-report-problem">Report a problem with this page</a>
+					<div id="s-la-widget-9529"></div>
+<script src="https://api2.libanswers.com/1.0/widgets/9529"></script>
+						
 					
 				</div>
 			</div>
 		
 			</div>
-							<script>
-								var thisUrl = encodeURI(window.location);
-								document.getElementById('problem-link').href = 'https://prod.library.gvsu.edu/status/?problem&url=' + thisUrl;
-							</script> 
+							
 
 			</div>
 	</div>
