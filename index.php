@@ -1,4 +1,5 @@
 <?php
+header('Location: https://www.gvsu.edu/library/buildings-reopening-94.htm#computers');
 date_default_timezone_set('America/New_York');
 
 //Custom variables to contain chunks of HTML and style rules that will only get included in specific circumstances
